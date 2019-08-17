@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 import UserItem from "./UserItem";
 import Spinner from "../layout/Spinner";
-import PropTypes from "prop-types";
+import propTypes from "prop-types";
 
 const Users = ({ users, loading }) => {
   if (loading) {
@@ -18,8 +18,8 @@ const Users = ({ users, loading }) => {
     );
   }
 };
-Users.PropTypes = {
-  users: PropTypes.array.isRequired,
-  loading: PropTypes.bool.isRequired
+Users.propTypes = {
+  users: propTypes.array.isRequired,
+  loading: propTypes.bool.isRequired
 };
 export default Users;
