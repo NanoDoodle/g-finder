@@ -1,20 +1,27 @@
 import React, { Component } from "react";
+import Navbar from "./components/layout/Navbar";
+import Users from "./components/users/Users";
+import axios from "axios";
 import "./styles/css/bootstrap.css";
 import "./styles/css/styles.css";
-import Navbar from "./components/layout/Navbar";
-import UserItem from "./components/users/UserItem";
-
 class App extends Component {
-  foo = () => "bar";
+  state = {
+    users: [],
+    loading: false
+  };
 
+  async componentDidMount() {
+    this.setState({ loading: true });
+    const res = await axios.get("https://api.github.com/users");
+    this.setState({ users: res.data, loading: false });
+  }
   render() {
-    const name = "Nndou";
-    const loading = false;
-    const showName = true;
     return (
       <div className='App'>
         <Navbar />
-        <UserItem />
+        <div className='container'>
+          <Users loading={this.state.loading} users={this.state.users} />
+        </div>
       </div>
     );
   }
