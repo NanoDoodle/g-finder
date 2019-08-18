@@ -9,7 +9,7 @@ import About from "./components/pages/About";
 import axios from "axios";
 import "./styles/css/bootstrap.css";
 import "./styles/css/styles.css";
-
+// This branch is the version that not using react hook
 class App extends Component {
   state = {
     users: [],
