@@ -1,18 +1,28 @@
-import React, { Component } from "react";
+import React, { Fragment, Component } from "react";
+import Spinner from "../layout/Spinner";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 export class User extends Component {
   componentDidMount() {
     this.props.getUser(this.props.match.params.login);
   }
+
+  static propTypes = {
+    loading: PropTypes.bool.isRequired,
+    user: PropTypes.object.isRequired,
+    getUser: PropTypes.func.isRequired
+  };
   render() {
     const {
       name,
       avatar_url,
-      loaction,
+      location,
       bio,
       blog,
       login,
       html_url,
+      company,
       followers,
       following,
       public_repos,
@@ -22,7 +32,101 @@ export class User extends Component {
 
     const { loading } = this.props;
 
-    return <div>{name}</div>;
+    if (loading) return <Spinner />;
+
+    return (
+      <Fragment>
+        <Link to='/' className='btn btn-light mr-4'>
+          Back To Search
+        </Link>
+        Hireable:{""}
+        {hireable ? (
+          <i className='fas fa-check-circle text-success' />
+        ) : (
+          <i className='fas fa-times-circle text-danger' />
+        )}
+        <div className='container'>
+          <div className='row mt-5'>
+            <div className='col-md-12 mx-auto'>
+              <div className='card'>
+                <div className='card-head text-center pt-3 bg-light'>
+                  <img
+                    src={avatar_url}
+                    className='rounded-circle'
+                    style={{ width: "100px" }}
+                  />
+                  <h2>{name}</h2>
+                  <p>Location:{location}</p>
+                </div>
+                <div className='card-body'>
+                  {bio && (
+                    <Fragment>
+                      <div className='ml-4'>
+                        <h3>Bio</h3>
+                        <p>{bio}</p>
+                      </div>
+                    </Fragment>
+                  )}
+                  <a href={html_url} className='btn btn-dark ml-4 mb-2'>
+                    Visit Github Profile
+                  </a>
+                  <ul>
+                    <li>
+                      {login && (
+                        <Fragment>
+                          <strong>Username:</strong>
+                          {login}
+                        </Fragment>
+                      )}
+                    </li>
+                    <li>
+                      {company && (
+                        <Fragment>
+                          <strong>Company:</strong>
+                          {company}
+                        </Fragment>
+                      )}
+                    </li>
+                    <li>
+                      {blog && (
+                        <Fragment>
+                          <strong>Blog:</strong>
+                          {blog}
+                        </Fragment>
+                      )}
+                    </li>
+                    <li>
+                      {login && (
+                        <Fragment>
+                          <strong>Username:</strong>
+                          {login}
+                        </Fragment>
+                      )}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className='card'>
+                <div className='card-body text-center'>
+                  <div className='badge badge-success mx-2'>
+                    Followers:{followers}
+                  </div>
+                  <div className='badge badge-warning mx-2'>
+                    Following:{following}
+                  </div>
+                  <div className='badge badge-info mx-2'>
+                    Public Repos:{public_repos}
+                  </div>
+                  <div className='badge badge-light mx-2'>
+                    Public Gists:{public_gists}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Fragment>
+    );
   }
 }
 
