@@ -50,6 +50,7 @@ class App extends Component {
     );
     this.setState({ user: res.data, loading: false });
   };
+
   // Get users repos
   getUserRepos = async username => {
     this.setState({ loading: true });
@@ -60,13 +61,17 @@ class App extends Component {
     );
     this.setState({ repos: res.data, loading: false });
   };
+
   // Clear users from state
   clearUsers = () => this.setState({ users: [], loading: false });
+
   // Set Alert
   setAlert = (msg, type) => {
     this.setState({ alert: { msg, type } });
     setTimeout(() => this.setState({ alert: null }), 5000);
   };
+
+  // Render
   render() {
     const { users, user, loading, repos } = this.state;
     return (
