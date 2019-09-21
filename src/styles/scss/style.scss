@@ -74,3 +74,13 @@ body {
   left: 30px;
   z-index: -10;
 }
+
+//user-card
+.user-card {
+  border-radius: 0px;
+  border-width: 0px;
+  box-shadow: -5px 10px 60px $gray;
+  .btn {
+    background-color: $primary;
+  }
+}

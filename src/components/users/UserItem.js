@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const UserItem = ({ user: { login, avatar_url, html_url } }) => {
   return (
-    <div className='card text-center py-3 my-1'>
+    <div className='card user-card text-center py-3 my-1 '>
       <img
         src={avatar_url}
         alt=''
