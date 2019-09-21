@@ -23,6 +23,7 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 const GithubState = props => {
+  //initialState is the initial states of the app
   const initialState = {
     users: [],
     user: {},

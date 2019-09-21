@@ -4,20 +4,20 @@ import { Link } from "react-router-dom";
 
 const Navbar = ({ icon, title }) => {
   return (
-    <nav className='navbar bg-info text-light navbar-expand'>
-      <div className='container-fluid'>
-        <h1 className='mb-0' style={{ fontSize: "30px" }}>
+    <nav className='navbar text-primary navbar-expand'>
+      <div className='container'>
+        <h1 className='mb-0'>
           <i className={icon} />
           {title}
         </h1>
         <ul className='navbar-nav ml-auto'>
           <li className='nav-item'>
-            <Link className='nav-link text-light' to='/'>
+            <Link className='nav-link text-primary' to='/'>
               Home
             </Link>
           </li>
           <li className='nav-item'>
-            <Link className='nav-link text-light' to='/about'>
+            <Link className='nav-link text-primary' to='/about'>
               About
             </Link>
           </li>

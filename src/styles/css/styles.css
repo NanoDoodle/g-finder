@@ -1,0 +1,53 @@
+body {
+  background-color: #f8f9fa;
+  font-family: "Titillium Web", sans-serif; }
+
+.navbar {
+  background-color: #fff;
+  border-bottom-color: #e0e5e9;
+  border-width: 0 0 2px;
+  border-style: solid;
+  height: 60px; }
+  .navbar h1 {
+    font-size: 40px;
+    font-weight: 600; }
+  .navbar .navbar-nav {
+    font-weight: 600;
+    font-size: 20px; }
+
+.search {
+  position: relative;
+  height: 500px; }
+  .search .title {
+    color: #404969;
+    font-size: 45px;
+    font-weight: 700;
+    margin-top: 130px;
+    margin-left: 80px; }
+  .search .text-orange {
+    color: #dc552c; }
+  .search .search-bg {
+    background: url("../../images/Brennatocat.png");
+    background-size: cover;
+    background-size: auto 650px;
+    background-repeat: no-repeat;
+    background-position: -60px -70px; }
+  .search .search-form {
+    position: absolute;
+    top: 270px; }
+    .search .search-form .search-input {
+      height: 50px;
+      border-radius: 0px; }
+  .search .btn-search {
+    color: #f8f9fa;
+    background-color: #dc552c; }
+  .search .btn-clear {
+    color: #f8f9fa;
+    background-color: #404969; }
+
+.scubatocat {
+  height: 400px;
+  position: relative;
+  top: -220px;
+  left: 30px;
+  z-index: -10; }

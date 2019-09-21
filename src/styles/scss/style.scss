@@ -1,2 +1,76 @@
-$primary: #3292a6;
-$primary-overlay: rgba(50, 146, 166, 0.9);
+$primary: #404969;
+$light: #f8f9fa;
+$white: #fff;
+$gray: #e0e5e9;
+$orange: #dc552c;
+
+body {
+  background-color: $light;
+  //   font-family: 'Open Sans', sans-serif;
+  font-family: "Titillium Web", sans-serif;
+}
+
+//Navbar
+.navbar {
+  background-color: $white;
+  border-bottom-color: $gray;
+  border-width: 0 0 2px;
+  border-style: solid;
+  height: 60px;
+  //   box-shadow: 2px 2px 2px #e5e6e9;
+  h1 {
+    font-size: 40px;
+    font-weight: 600;
+  }
+  .navbar-nav {
+    font-weight: 600;
+    font-size: 20px;
+  }
+}
+
+//Search
+.search {
+  position: relative;
+  height: 500px;
+  .title {
+    color: $primary;
+    font-size: 45px;
+    font-weight: 700;
+    margin-top: 130px;
+    margin-left: 80px;
+  }
+  .text-orange {
+    color: $orange;
+  }
+  .search-bg {
+    background: url("../../images/Brennatocat.png");
+    background-size: cover;
+    background-size: auto 650px;
+    background-repeat: no-repeat;
+    background-position: -60px -70px;
+  }
+  .search-form {
+    position: absolute;
+    top: 270px;
+    .search-input {
+      height: 50px;
+      border-radius: 0px;
+    }
+  }
+  .btn-search {
+    color: $light;
+    background-color: $orange;
+  }
+  .btn-clear {
+    color: $light;
+    background-color: $primary;
+  }
+}
+//scubatocat
+.scubatocat {
+  height: 400px;
+  position: relative;
+  top: -220px;
+  left: 30px;
+  z-index: -10;
+}
