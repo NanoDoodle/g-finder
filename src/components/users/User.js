@@ -3,6 +3,7 @@ import Spinner from "../layout/Spinner";
 import Repos from "../repos/Repos";
 import { Link } from "react-router-dom";
 import GithubContext from "../../context/github/githubContext";
+import bgImage from "../../images/filmtocats.png";
 
 const User = ({ match }) => {
   const githubContext = useContext(GithubContext);
@@ -32,100 +33,107 @@ const User = ({ match }) => {
   } = user;
 
   if (loading) return <Spinner />;
+  // Back to search btn
+  const backToSearchBtn = (
+    <div className='ml-1'>
+      <Link to='/' className='btn btn-secondary mr-4'>
+        Back To Search
+      </Link>
+      Hireable:{""}
+      {hireable ? (
+        <i className='fas fa-check-circle text-success' />
+      ) : (
+        <i className='fas fa-times-circle text-danger' />
+      )}
+    </div>
+  );
 
   return (
     <Fragment>
-      <div className='container'>
-        <div>
-          <Link to='/' className='btn btn-light mr-4'>
-            Back To Search
-          </Link>
-          Hireable:{""}
-          {hireable ? (
-            <i className='fas fa-check-circle text-success' />
-          ) : (
-            <i className='fas fa-times-circle text-danger' />
-          )}
+      {backToSearchBtn}
+      {/* Profile */}
+
+      <div className='row profile py-5 mx-1'>
+        {/* Bg image */}
+        <div className='col-md-6 d-none d-md-block'></div>
+        <div className='col-md-6 m-0 p-0'>
+          <div className='bg-image text-center w-100 mr-5'>
+            <img className='mr-5' src={bgImage}></img>
+          </div>
         </div>
-        <div className='row'>
-          <div className='col-md-12 mx-auto'>
-            <div className='card'>
-              <div className='card-head text-center pt-3 bg-light'>
-                <img
-                  src={avatar_url}
-                  className='rounded-circle'
-                  style={{ width: "100px" }}
-                  alt='avatar'
-                />
-                <h2>{name}</h2>
-                <p>Location:{location}</p>
-              </div>
-              <div className='card-body'>
-                {bio && (
-                  <Fragment>
-                    <div className='ml-4'>
-                      <h3>Bio</h3>
-                      <p>{bio}</p>
-                    </div>
-                  </Fragment>
-                )}
-                <a href={html_url} className='btn btn-dark ml-4 mb-2'>
-                  Visit Github Profile
-                </a>
-                <ul>
-                  <li>
-                    {login && (
-                      <Fragment>
-                        <strong>Username:</strong>
-                        {login}
-                      </Fragment>
-                    )}
-                  </li>
-                  <li>
-                    {company && (
-                      <Fragment>
-                        <strong>Company:</strong>
-                        {company}
-                      </Fragment>
-                    )}
-                  </li>
-                  <li>
-                    {blog && (
-                      <Fragment>
-                        <strong>Blog:</strong>
-                        {blog}
-                      </Fragment>
-                    )}
-                  </li>
-                  <li>
-                    {login && (
-                      <Fragment>
-                        <strong>Username:</strong>
-                        {login}
-                      </Fragment>
-                    )}
-                  </li>
-                </ul>
-              </div>
+        {/* Profile Info */}
+        <div className='col-md-4 my-auto'>
+          <div className='text-center pt-3'>
+            <img
+              src={avatar_url}
+              className='rounded-circle'
+              style={{ width: "100px" }}
+              alt='avatar'
+            />
+            <h2>{name}</h2>
+            <p>Location: {location}</p>
+          </div>
+        </div>
+        <div className='col-md-8 my-auto'>
+          <div className=''>
+            {bio && (
+              <Fragment>
+                <div className='ml-4'>
+                  <h3>Bio</h3>
+                  <p>{bio}</p>
+                </div>
+              </Fragment>
+            )}
+            <a href={html_url} className='btn btn-visit ml-4 mb-2'>
+              Visit Github Profile
+            </a>
+            <ul>
+              {login && (
+                <li>
+                  <strong>Username: </strong>
+                  {login}
+                </li>
+              )}
+
+              {company && (
+                <li>
+                  <strong>Company: </strong>
+                  {company}
+                </li>
+              )}
+
+              {blog && (
+                <li>
+                  <strong>Blog: </strong>
+                  {blog}
+                </li>
+              )}
+            </ul>
+          </div>
+        </div>
+      </div>
+      {/* User badge */}
+      <div className='row userBadge py-3 my-2 mx-1'>
+        <div className='col-12 '>
+          <div className='text-center'>
+            <div className='badge badge-secondary mx-2'>
+              Followers: {followers}
             </div>
-            <div className='card'>
-              <div className='card-body text-center'>
-                <div className='badge badge-success mx-2'>
-                  Followers:{followers}
-                </div>
-                <div className='badge badge-warning mx-2'>
-                  Following:{following}
-                </div>
-                <div className='badge badge-info mx-2'>
-                  Public Repos:{public_repos}
-                </div>
-                <div className='badge badge-light mx-2'>
-                  Public Gists:{public_gists}
-                </div>
-              </div>
+            <div className='badge badge-primary mx-2'>
+              Following: {following}
+            </div>
+            <div className='badge badge-info mx-2'>
+              Public Repos: {public_repos}
+            </div>
+            <div className='badge badge-warning mx-2'>
+              Public Gists: {public_gists}
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Repos */}
+      <div className='row mx-1'>
         <Repos repos={repos} />
       </div>
     </Fragment>

@@ -80,7 +80,45 @@ body {
   border-radius: 0px;
   border-width: 0px;
   box-shadow: -5px 10px 60px $gray;
+  //   background: url("../../images/scubatocat.png");
+  //   background-size: auto 200px;
+  //   background-repeat: no-repeat;
+  .score {
+    color: #6c6e6e;
+  }
   .btn {
     background-color: $primary;
+  }
+}
+
+//User page
+//proflie
+.profile {
+  background-color: rgba($color: $primary, $alpha: 0.9);
+  color: $light;
+  min-height: 350px;
+  .bg-image {
+    position: absolute;
+    z-index: -10;
+    overflow: hidden;
+    img {
+      height: 550px;
+      align-self: auto;
+      position: relative;
+      top: -140px;
+    }
+  }
+  .btn-visit {
+    background-color: rgba($color: $orange, $alpha: 0.8);
+    color: $light;
+  }
+}
+.userBadge {
+  border-radius: 0px;
+  background-color: $white;
+  box-shadow: -5px 10px 60px $gray;
+  .badge {
+    padding: 5px 10px;
+    border-radius: 1px;
   }
 }

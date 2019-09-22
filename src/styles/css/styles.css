@@ -56,5 +56,32 @@ body {
   border-radius: 0px;
   border-width: 0px;
   box-shadow: -5px 10px 60px #e0e5e9; }
+  .user-card .score {
+    color: #6c6e6e; }
   .user-card .btn {
     background-color: #404969; }
+
+.profile {
+  background-color: rgba(64, 73, 105, 0.9);
+  color: #f8f9fa;
+  min-height: 350px; }
+  .profile .bg-image {
+    position: absolute;
+    z-index: -10;
+    overflow: hidden; }
+    .profile .bg-image img {
+      height: 550px;
+      align-self: auto;
+      position: relative;
+      top: -140px; }
+  .profile .btn-visit {
+    background-color: rgba(220, 85, 44, 0.8);
+    color: #f8f9fa; }
+
+.userBadge {
+  border-radius: 0px;
+  background-color: #fff;
+  box-shadow: -5px 10px 60px #e0e5e9; }
+  .userBadge .badge {
+    padding: 5px 10px;
+    border-radius: 1px; }
