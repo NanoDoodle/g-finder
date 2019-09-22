@@ -67,7 +67,7 @@ const User = ({ match }) => {
             <img
               src={avatar_url}
               className='rounded-circle'
-              style={{ width: "100px" }}
+              style={{ width: "120px" }}
               alt='avatar'
             />
             <h2>{name}</h2>
@@ -113,7 +113,7 @@ const User = ({ match }) => {
         </div>
       </div>
       {/* User badge */}
-      <div className='row userBadge py-3 my-2 mx-1'>
+      <div className='row userBadge py-3 mb-2 mx-1'>
         <div className='col-12 '>
           <div className='text-center'>
             <div className='badge badge-secondary mx-2'>

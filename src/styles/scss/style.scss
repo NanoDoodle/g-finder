@@ -10,7 +10,7 @@ body {
   font-family: "Titillium Web", sans-serif;
 }
 
-//Navbar
+//######## Navbar ########
 .navbar {
   background-color: $white;
   border-bottom-color: $gray;
@@ -28,7 +28,7 @@ body {
   }
 }
 
-//Search
+//######## Search page ########
 .search {
   position: relative;
   height: 500px;
@@ -91,7 +91,7 @@ body {
   }
 }
 
-//User page
+//######## User page ########
 //proflie
 .profile {
   background-color: rgba($color: $primary, $alpha: 0.9);
@@ -119,6 +119,36 @@ body {
   box-shadow: -5px 10px 60px $gray;
   .badge {
     padding: 5px 10px;
+    font-size: 12px;
+    color: $light;
     border-radius: 1px;
+  }
+}
+//Repo card
+.repo-card {
+  border-radius: 0px;
+  border-width: 0px;
+  box-shadow: -5px 10px 60px $gray;
+  height: 200px;
+  overflow: hidden;
+  h5 {
+    height: 24px;
+    font-weight: 600;
+    overflow: hidden;
+  }
+  .language {
+    font-weight: 600;
+    color: $primary;
+    font-size: 15px;
+  }
+  .repoDescription {
+    height: 80px;
+    overflow: hidden;
+  }
+  .repoLable {
+    color: #6c757d;
+    font-weight: 600;
+    font-size: 14px;
+    fill: #6c757d;
   }
 }
