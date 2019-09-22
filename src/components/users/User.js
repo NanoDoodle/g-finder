@@ -84,7 +84,11 @@ const User = ({ match }) => {
                 </div>
               </Fragment>
             )}
-            <a href={html_url} className='btn btn-visit ml-4 mb-2'>
+            <a
+              href={html_url}
+              target='_blank'
+              className='btn btn-visit ml-4 mb-2'
+            >
               Visit Github Profile
             </a>
             <ul>
