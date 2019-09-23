@@ -66,6 +66,15 @@ body {
     background-color: $primary;
   }
 }
+//Change the font size when using ipad
+@media only screen and (max-width: 991px) {
+  .search {
+    .title {
+      font-size: 34px;
+    }
+  }
+}
+
 //scubatocat
 .scubatocat {
   height: 400px;

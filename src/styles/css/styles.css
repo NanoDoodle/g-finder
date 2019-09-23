@@ -45,6 +45,9 @@ body {
     color: #f8f9fa;
     background-color: #404969; }
 
+@media only screen and (max-width: 991px) {
+  .search .title {
+    font-size: 34px; } }
 .scubatocat {
   height: 400px;
   position: relative;
