@@ -22,7 +22,7 @@ const Search = () => {
       githubContext.searchUsers(text);
       setText("");
     } else if (searchType === "Repos") {
-      githubContext.searchUsers(text);
+      githubContext.searchRepos(text);
       setText("");
     }
   };
@@ -72,9 +72,9 @@ const Search = () => {
                 onChange={onChange}
               />
               <input type='submit' value='Search' className='btn btn-search' />
-              {githubContext.users.length > 0 && (
+              {githubContext.users.length + githubContext.repos.length > 0 && (
                 <button
-                  onClick={githubContext.clearUsers}
+                  onClick={githubContext.clearSearch}
                   className='btn btn-clear px-3'
                 >
                   Clear

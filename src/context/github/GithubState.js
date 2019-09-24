@@ -5,8 +5,10 @@ import GithubReducer from "./githubReducer";
 
 import {
   SEARCH_USERS,
+  SEARCH_REPOS,
   SET_LOADING,
   CLEAR_USERS,
+  CLEAR_SEARCH,
   GET_REPOS,
   GET_USER
 } from "../types";
@@ -35,6 +37,7 @@ const GithubState = props => {
 
   // Search Github Users
   const searchUsers = async text => {
+    clearSearch();
     setLoading();
     const res = await axios.get(
       `https://api.github.com/search/users?q=${text}&client_id=${githubClientId}&client_secret=${githubClientSecret}`
@@ -42,6 +45,21 @@ const GithubState = props => {
 
     dispatch({
       type: SEARCH_USERS,
+      payload: res.data.items
+    });
+  };
+
+  // Search Github Repos
+  const searchRepos = async text => {
+    clearSearch();
+    setLoading();
+    const res = await axios.get(
+      `https://api.github.com/search/repositories?q=${text}&client_id=${githubClientId}&client_secret=${githubClientSecret}&sort=stars&order=desc`
+      // `https://api.github.com/search/users?q=${text}&client_id=35799df5c142c4bf56f7&client_secret=bfcac39cbd5062bd8c260b999881889d7e6e83ee`
+    );
+
+    dispatch({
+      type: SEARCH_REPOS,
       payload: res.data.items
     });
   };
@@ -74,6 +92,9 @@ const GithubState = props => {
   // Clear users from state
   const clearUsers = () => dispatch({ type: CLEAR_USERS });
 
+  // Clear repos from state
+  const clearSearch = () => dispatch({ type: CLEAR_SEARCH });
+
   //Set Loading
   const setLoading = () => dispatch({ type: SET_LOADING });
 
@@ -85,7 +106,9 @@ const GithubState = props => {
         repos: state.repos,
         loading: state.loading,
         searchUsers,
+        searchRepos,
         clearUsers,
+        clearSearch,
         getUser,
         getUserRepos
       }}
