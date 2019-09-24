@@ -54,7 +54,12 @@ const RepoItem = ({ repo }) => {
     <div className='card repo-card m-1'>
       <div className='card-body p-3'>
         <h5 className='mb-1'>
-          <a className='text-secondary' href={repo.html_url} target='_blank'>
+          <a
+            className='text-secondary'
+            href={repo.html_url}
+            target='_blank'
+            rel='noopener noreferrer'
+          >
             {repo.name}
           </a>
         </h5>

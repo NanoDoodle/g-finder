@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useContext } from "react";
 import Spinner from "../layout/Spinner";
-import Repos from "../repos/Repos";
+import RepoOrder from "../repos/RepoOrder";
 import { Link } from "react-router-dom";
 import GithubContext from "../../context/github/githubContext";
 import bgImage from "../../images/filmtocats.png";
@@ -66,45 +66,6 @@ const User = ({ match }) => {
       </div>
     </div>
   );
-  //Order
-  const order = (
-    <div className='row repoOrder mx-2'>
-      <div className='col-sm-10 pl-1'>
-        <h4 className='text-primary'>User repos</h4>
-      </div>
-      <div className='col-sm-2 ml-auto text-center p-0'>
-        <div class='dropdown  '>
-          <button
-            class='btn btn-secondary btn-block dropdown-toggle py-0 mr-1'
-            type='button'
-            id='dropdownMenuButton'
-            data-toggle='dropdown'
-            aria-haspopup='true'
-            // aria-expanded='false'
-          >
-            Ordered by
-          </button>
-          <div
-            class='dropdown-menu dropdown-menu-right'
-            aria-labelledby='dropdownMenuButton'
-          >
-            <a class='dropdown-item' href='#'>
-              Star
-            </a>
-            <a class='dropdown-item' href='#'>
-              Watch
-            </a>
-            <a class='dropdown-item' href='#'>
-              Fork
-            </a>
-            <a class='dropdown-item' href='#'>
-              Update
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
 
   return (
     <Fragment>
@@ -116,7 +77,7 @@ const User = ({ match }) => {
         <div className='col-md-6 d-none d-md-block'></div>
         <div className='col-md-6 m-0 p-0'>
           <div className='bg-image text-center w-100 mr-5'>
-            <img className='mr-5' src={bgImage}></img>
+            <img className='mr-5' alt='bgImage' src={bgImage}></img>
           </div>
         </div>
         {/* Profile Info */}
@@ -145,6 +106,7 @@ const User = ({ match }) => {
             <a
               href={html_url}
               target='_blank'
+              rel='noopener noreferrer'
               className='btn btn-visit ml-4 mb-2'
             >
               Visit Github Profile
@@ -176,11 +138,10 @@ const User = ({ match }) => {
       </div>
       {/* User badge */}
       {userBadge}
-      {order}
+
       {/* Repos */}
-      <div className='row mx-1'>
-        <Repos repos={repos} />
-      </div>
+
+      <RepoOrder repos={repos} />
     </Fragment>
   );
 };

@@ -13,7 +13,11 @@ const Users = () => {
     return (
       <div className='row d-none d-md-block'>
         <div className='col-12' style={{ height: "100px" }}>
-          <img src={scubatocat} className='scubatocat animated slideInUp'></img>
+          <img
+            src={scubatocat}
+            alt='scubatocat'
+            className='scubatocat animated slideInUp'
+          ></img>
         </div>
       </div>
     );
