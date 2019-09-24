@@ -57,6 +57,17 @@ body {
       border-radius: 0px;
     }
   }
+  .dropdown-search {
+    .dropdown-menu {
+      border-radius: 0px;
+    }
+    .dropdown-toggle {
+      background-color: $white;
+      border-color: #8d9296;
+      color: $primary;
+    }
+  }
+
   .btn-search {
     color: $light;
     background-color: $orange;

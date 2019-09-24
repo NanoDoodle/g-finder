@@ -7,13 +7,21 @@ const Search = () => {
   const alertContext = useContext(AlertContext);
   const [text, setText] = useState("");
 
+  const [searchType, setSearchType] = useState("Users");
+
+  const onClickUsers = e => setSearchType("Users");
+  const onClickRepos = e => setSearchType("Repos");
+
   const onChange = e => setText(e.target.value);
 
   const onSubmit = e => {
     e.preventDefault();
     if (text === "") {
       alertContext.setAlert("Please enter someting", "warning");
-    } else {
+    } else if (searchType === "Users") {
+      githubContext.searchUsers(text);
+      setText("");
+    } else if (searchType === "Repos") {
       githubContext.searchUsers(text);
       setText("");
     }
@@ -33,11 +41,32 @@ const Search = () => {
       <div className='row search-form w-100'>
         <div className='col-md-8 px-5 mx-auto'>
           <form onSubmit={onSubmit} className='form'>
+            {/* Input */}
             <div className='input-group my-3'>
+              {/* Dropdown menu */}
+              <div class='input-group-prepend dropdown-search'>
+                <button
+                  class='btn btn-primary dropdown-toggle'
+                  type='button'
+                  data-toggle='dropdown'
+                  aria-haspopup='true'
+                  aria-expanded='false'
+                >
+                  {searchType}
+                </button>
+                <div class='dropdown-menu'>
+                  <a class='dropdown-item' href='#' onClick={onClickUsers}>
+                    Search Users
+                  </a>
+                  <a class='dropdown-item' href='#' onClick={onClickRepos}>
+                    Search Repos
+                  </a>
+                </div>
+              </div>
               <input
                 type='text'
                 name='text'
-                placeholder='Search Users...'
+                placeholder=''
                 className='form-control search-input'
                 value={text}
                 onChange={onChange}

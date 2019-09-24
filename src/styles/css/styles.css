@@ -38,6 +38,12 @@ body {
     .search .search-form .search-input {
       height: 50px;
       border-radius: 0px; }
+  .search .dropdown-search .dropdown-menu {
+    border-radius: 0px; }
+  .search .dropdown-search .dropdown-toggle {
+    background-color: #fff;
+    border-color: #8d9296;
+    color: #404969; }
   .search .btn-search {
     color: #f8f9fa;
     background-color: #dc552c; }

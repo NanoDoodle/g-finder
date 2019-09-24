@@ -45,6 +45,8 @@ $green:   #28a745 !default;
 $teal:    #20c997 !default;
 $cyan:    #17a2b8 !default;
 $blue-primary:     #404969 !default;
+$blue-primary-light:     #6a7391 !default;
+
 $orange-secondary: #dc552c !default;
 $lightBlue :       #bde4f4 !default;
 
@@ -77,6 +79,8 @@ $warning:       $purple !default;
 $danger:        $red !default;
 $light:         $gray-100 !default;
 $dark:          $gray-800 !default;
+
+
 
 $theme-colors: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
