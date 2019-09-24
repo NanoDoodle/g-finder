@@ -47,6 +47,64 @@ const User = ({ match }) => {
       )}
     </div>
   );
+  //User badge about their followers, Following, repos, Gists
+  const userBadge = (
+    <div className='row userBadge py-3 mb-2 mx-1'>
+      <div className='col-12 '>
+        <div className='text-center'>
+          <div className='badge badge-secondary mx-2'>
+            Followers: {followers}
+          </div>
+          <div className='badge badge-primary mx-2'>Following: {following}</div>
+          <div className='badge badge-info mx-2'>
+            Public Repos: {public_repos}
+          </div>
+          <div className='badge badge-warning mx-2'>
+            Public Gists: {public_gists}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+  //Order
+  const order = (
+    <div className='row repoOrder mx-2'>
+      <div className='col-sm-10 pl-1'>
+        <h4 className='text-primary'>User repos</h4>
+      </div>
+      <div className='col-sm-2 ml-auto text-center p-0'>
+        <div class='dropdown  '>
+          <button
+            class='btn btn-secondary btn-block dropdown-toggle py-0 mr-1'
+            type='button'
+            id='dropdownMenuButton'
+            data-toggle='dropdown'
+            aria-haspopup='true'
+            // aria-expanded='false'
+          >
+            Ordered by
+          </button>
+          <div
+            class='dropdown-menu dropdown-menu-right'
+            aria-labelledby='dropdownMenuButton'
+          >
+            <a class='dropdown-item' href='#'>
+              Star
+            </a>
+            <a class='dropdown-item' href='#'>
+              Watch
+            </a>
+            <a class='dropdown-item' href='#'>
+              Fork
+            </a>
+            <a class='dropdown-item' href='#'>
+              Update
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 
   return (
     <Fragment>
@@ -117,25 +175,8 @@ const User = ({ match }) => {
         </div>
       </div>
       {/* User badge */}
-      <div className='row userBadge py-3 mb-2 mx-1'>
-        <div className='col-12 '>
-          <div className='text-center'>
-            <div className='badge badge-secondary mx-2'>
-              Followers: {followers}
-            </div>
-            <div className='badge badge-primary mx-2'>
-              Following: {following}
-            </div>
-            <div className='badge badge-info mx-2'>
-              Public Repos: {public_repos}
-            </div>
-            <div className='badge badge-warning mx-2'>
-              Public Gists: {public_gists}
-            </div>
-          </div>
-        </div>
-      </div>
-
+      {userBadge}
+      {order}
       {/* Repos */}
       <div className='row mx-1'>
         <Repos repos={repos} />

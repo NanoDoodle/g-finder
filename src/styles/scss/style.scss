@@ -122,6 +122,7 @@ body {
     color: $light;
   }
 }
+//User badge
 .userBadge {
   border-radius: 0px;
   background-color: $white;
@@ -131,6 +132,21 @@ body {
     font-size: 12px;
     color: $light;
     border-radius: 1px;
+  }
+}
+//Drop down menu
+.repoOrder {
+  h4 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 0px;
+  }
+  .dropdown {
+    // position: relative;
+    // margin-right: 100px;
+    .dropdown-menu {
+      border-radius: 0px;
+    }
   }
 }
 //Repo card

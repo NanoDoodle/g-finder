@@ -9,6 +9,7 @@ import About from "./components/pages/About";
 import NotFound from "./components/pages/NotFound";
 import GithubState from "./context/github/GithubState";
 import AlertState from "./context/alert/AlertState";
+import "bootstrap/dist/js/bootstrap.js";
 
 import "./styles/css/bootstrap.css";
 import "./styles/css/styles.css";

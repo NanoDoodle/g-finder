@@ -91,6 +91,13 @@ body {
     color: #f8f9fa;
     border-radius: 1px; }
 
+.repoOrder h4 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 0px; }
+.repoOrder .dropdown .dropdown-menu {
+  border-radius: 0px; }
+
 .repo-card {
   border-radius: 0px;
   border-width: 0px;
