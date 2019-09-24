@@ -70,6 +70,17 @@ body {
   .user-card .btn {
     background-color: #404969; }
 
+.repo-owner {
+  background-color: #fff;
+  border-radius: 0px;
+  border-width: 0px;
+  border-top-color: #dda08e;
+  border-top-width: 3px;
+  box-shadow: -5px 10px 60px #e0e5e9; }
+  .repo-owner .text-primary {
+    font-size: 14px;
+    font-weight: 600; }
+
 .profile {
   background-color: rgba(64, 73, 105, 0.9);
   color: #f8f9fa;

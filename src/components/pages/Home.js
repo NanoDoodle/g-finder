@@ -1,11 +1,11 @@
 import React, { Fragment } from "react";
 import Search from "../users/Search";
-import Users from "../users/Users";
+import SearchResults from "../users/SearchResults";
 
 const Home = () => (
   <Fragment>
     <Search />
-    <Users />
+    <SearchResults />
   </Fragment>
 );
 export default Home;

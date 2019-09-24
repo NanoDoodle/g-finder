@@ -110,6 +110,19 @@ body {
     background-color: $primary;
   }
 }
+//Repo owner title
+.repo-owner {
+  background-color: #fff;
+  border-radius: 0px;
+  border-width: 0px;
+  border-top-color: #dda08e;
+  border-top-width: 3px;
+  box-shadow: -5px 10px 60px $gray;
+  .text-primary {
+    font-size: 14px;
+    font-weight: 600;
+  }
+}
 
 //######## User page ########
 //proflie

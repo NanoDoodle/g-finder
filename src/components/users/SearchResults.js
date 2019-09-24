@@ -4,8 +4,9 @@ import Spinner from "../layout/Spinner";
 import GithubContext from "../../context/github/githubContext";
 import scubatocat from "../../images/scubatocat.png";
 import RepoItem from "../../components/repos/RepoItem";
+import { Link } from "react-router-dom";
 
-const Users = () => {
+const SearchResults = () => {
   const githubContext = useContext(GithubContext);
 
   const { loading, users, repos } = githubContext;
@@ -40,7 +41,13 @@ const Users = () => {
     return (
       <div className='py-3 row' style={{ position: "relative", top: "-30px" }}>
         {repos.map(repo => (
-          <div key={repo.id} className='col-md-4 p-0 m-0'>
+          <div key={repo.id} className='col-md-4 p-0 mt-3'>
+            <Link
+              to={`/user/${repo.owner.login}`}
+              className='repo-owner bg-light card m-1 py-1'
+            >
+              <div className='text-primary px-3'>Owner: {repo.owner.login}</div>
+            </Link>
             <RepoItem repo={repo} />
           </div>
         ))}
@@ -49,4 +56,4 @@ const Users = () => {
   }
 };
 
-export default Users;
+export default SearchResults;
