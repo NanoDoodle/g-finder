@@ -30,6 +30,7 @@ const GithubState = props => {
     users: [],
     user: {},
     repos: [],
+    userRepos: [],
     loading: false
   };
 
@@ -55,7 +56,6 @@ const GithubState = props => {
     setLoading();
     const res = await axios.get(
       `https://api.github.com/search/repositories?q=${text}&client_id=${githubClientId}&client_secret=${githubClientSecret}&sort=stars&order=desc`
-      // `https://api.github.com/search/users?q=${text}&client_id=35799df5c142c4bf56f7&client_secret=bfcac39cbd5062bd8c260b999881889d7e6e83ee`
     );
 
     dispatch({
@@ -104,6 +104,7 @@ const GithubState = props => {
         users: state.users,
         user: state.user,
         repos: state.repos,
+        userRepos: state.userRepos,
         loading: state.loading,
         searchUsers,
         searchRepos,

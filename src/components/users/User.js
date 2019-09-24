@@ -8,7 +8,7 @@ import bgImage from "../../images/filmtocats.png";
 const User = ({ match }) => {
   const githubContext = useContext(GithubContext);
 
-  const { getUser, loading, user, repos, getUserRepos } = githubContext;
+  const { getUser, loading, user, userRepos, getUserRepos } = githubContext;
 
   useEffect(() => {
     getUser(match.params.login);
@@ -141,7 +141,7 @@ const User = ({ match }) => {
 
       {/* Repos */}
 
-      <RepoOrder repos={repos} />
+      <RepoOrder userRepos={userRepos} />
     </Fragment>
   );
 };

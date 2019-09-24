@@ -2,16 +2,16 @@ import React from "react";
 import PropTypes from "prop-types";
 import RepoItem from "./RepoItem";
 
-const Repos = ({ repos }) => {
+const UserRepos = ({ userRepos }) => {
   //List all repos
-  return repos.map(repo => (
+  return userRepos.map(repo => (
     <div key={repo.id} className='col-md-4 p-0 m-0'>
       <RepoItem repo={repo} />
     </div>
   ));
 };
 
-Repos.protoTypes = {
-  repos: PropTypes.array.isRequired
+UserRepos.protoTypes = {
+  UserRepos: PropTypes.array.isRequired
 };
-export default Repos;
+export default UserRepos;

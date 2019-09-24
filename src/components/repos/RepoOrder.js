@@ -1,8 +1,8 @@
 import React, { Fragment, useState } from "react";
 import PropTypes from "prop-types";
-import Repos from "./Repos";
+import UserRepos from "./UserRepos";
 
-const RepoOrder = ({ repos }) => {
+const RepoOrder = ({ userRepos }) => {
   const [order, setOrder] = useState("star");
   //   const repoOrderByUpdate = repos;
 
@@ -23,7 +23,7 @@ const RepoOrder = ({ repos }) => {
       return y.forks_count - x.forks_count;
     }
   };
-  repos = repos.sort(orderStarDown);
+  userRepos = userRepos.sort(orderStarDown);
   //   order !== "update"
   //     ? (repos = repos.sort(orderStarDown))
   //     : (repos = repoOrderByUpdate);
@@ -95,13 +95,13 @@ const RepoOrder = ({ repos }) => {
     <Fragment>
       {orderRow}
       <div className='row mx-1'>
-        <Repos repos={repos} />
+        <UserRepos userRepos={userRepos} />
       </div>
     </Fragment>
   );
 };
 
-Repos.protoTypes = {
-  repos: PropTypes.array.isRequired
+UserRepos.protoTypes = {
+  UserRepos: PropTypes.array.isRequired
 };
 export default RepoOrder;
