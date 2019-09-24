@@ -6,10 +6,13 @@ const Navbar = ({ icon, title }) => {
   return (
     <nav className='navbar text-primary navbar-expand'>
       <div className='container'>
-        <h1 className='mb-0'>
-          <i className={icon} />
-          {title}
-        </h1>
+        <Link className='nav-link text-primary' to='/'>
+          <h1 className='mb-0'>
+            <i className={icon} />
+            {title}
+          </h1>
+        </Link>
+
         <ul className='navbar-nav ml-auto'>
           <li className='nav-item'>
             <Link className='nav-link text-primary' to='/'>
