@@ -46,7 +46,7 @@ const Search = () => {
               {/* Dropdown menu */}
               <div class='input-group-prepend dropdown-search'>
                 <button
-                  class='btn btn-primary dropdown-toggle'
+                  className='btn btn-primary dropdown-toggle'
                   type='button'
                   data-toggle='dropdown'
                   aria-haspopup='true'
@@ -55,10 +55,10 @@ const Search = () => {
                   {searchType}
                 </button>
                 <div class='dropdown-menu'>
-                  <a class='dropdown-item' href='#' onClick={onClickUsers}>
+                  <a class='dropdown-item' href='#!' onClick={onClickUsers}>
                     Search Users
                   </a>
-                  <a class='dropdown-item' href='#' onClick={onClickRepos}>
+                  <a class='dropdown-item' href='#!' onClick={onClickRepos}>
                     Search Repos
                   </a>
                 </div>
