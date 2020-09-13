@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./styles/css/animate.css";
 import Navbar from "./components/layout/Navbar";
+import Trending from "./components/pages/Trending";
 import Home from "./components/pages/Home";
 import User from "./components/users/User";
 import Alert from "./components/layout/Alert";
@@ -19,14 +20,15 @@ const App = () => {
     <GithubState>
       <AlertState>
         <Router>
-          <div className='App'>
+          <div className="App">
             <Navbar />
-            <div className='container'>
+            <div className="container">
               <Alert />
               <Switch>
-                <Route exact path='/' component={Home} />
-                <Route exact path='/about' component={About} />
-                <Route exact path='/user/:login' component={User} />
+                <Route exact path="/trending" component={Trending} />
+                <Route exact path="/" component={Home} />
+                <Route exact path="/about" component={About} />
+                <Route exact path="/user/:login" component={User} />
                 <Route component={NotFound} />
               </Switch>
             </div>
