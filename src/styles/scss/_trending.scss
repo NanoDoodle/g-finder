@@ -1,0 +1,42 @@
+$orange: #dc552c;
+$primary: #404969;
+
+.trending-card {
+  color: $primary;
+  width: 100%;
+  border-radius: 5%;
+  background-color: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease-in-out;
+  padding: 20px;
+
+  .trending-card-main-img {
+    border-radius: 20%;
+    width: 50px;
+    display: inline-block;
+    margin-bottom: 35px;
+  }
+  .trending-card-header {
+    display: inline-block;
+    padding: 0px 15px 2px 20px;
+  }
+  .trending-card-repos {
+    color: $orange;
+    font-weight: 900;
+    font-size: 30px;
+  }
+  .trending-card-language-icon {
+    color: rgb(218, 205, 91);
+    display: inline-block;
+    margin-right: 8px;
+  }
+  .trending-card-author {
+    margin-left: 20px;
+  }
+  .trending-card-author-img {
+    border-radius: 50%;
+    width: 30px;
+    display: inline-block;
+    margin-left: 15px;
+  }
+}
