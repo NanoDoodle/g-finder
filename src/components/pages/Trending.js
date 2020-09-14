@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
+import GithubContext from "../../context/github/githubContext";
 
 const svgStar = (
   <svg
-    class="octicon octicon-star v-align-text-bottom"
+    className="octicon octicon-star v-align-text-bottom"
     viewBox="0 0 14 16"
     version="1.1"
     width="14"
@@ -18,7 +19,7 @@ const svgStar = (
 
 const svgFork = (
   <svg
-    class="octicon octicon-repo-forked v-align-text-bottom"
+    className="octicon octicon-repo-forked v-align-text-bottom"
     viewBox="0 0 10 16"
     version="1.1"
     width="10"
@@ -34,7 +35,7 @@ const svgFork = (
 
 const svgWatch = (
   <svg
-    class="octicon octicon-eye v-align-text-bottom"
+    className="octicon octicon-eye v-align-text-bottom"
     viewBox="0 0 16 16"
     version="1.1"
     width="16"
@@ -49,6 +50,12 @@ const svgWatch = (
 );
 
 const Trending = () => {
+  const githubContext = useContext(GithubContext);
+  const { getTrendingRepos } = githubContext;
+  useEffect(() => {
+    getTrendingRepos();
+  }, []);
+
   return (
     <div>
       <h1>Trending Repos</h1>
@@ -69,10 +76,8 @@ const Trending = () => {
               <a href="#" className="trending-card-repos">
                 talk
               </a>
-              <p className="trending-card-language">
-                <div className="trending-card-language-icon ">
-                  <i className="fas fa-circle" />
-                </div>
+              <div className="trending-card-language">
+                <i className="fas fa-circle trending-card-language-icon" />
                 Javascript{" "}
                 <span className="trending-card-author">Build by</span>
                 <img
@@ -80,7 +85,7 @@ const Trending = () => {
                   alt=""
                   className="trending-card-author-img"
                 />
-              </p>
+              </div>
               <p>A group video call for the web. No signups. No downloads.</p>
               <div className="repoLable mb-0 pb-0">
                 {svgStar}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{svgFork}&nbsp;
@@ -105,10 +110,8 @@ const Trending = () => {
               <a href="#" className="trending-card-repos">
                 talk
               </a>
-              <p className="trending-card-language">
-                <div className="trending-card-language-icon ">
-                  <i className="fas fa-circle" />
-                </div>
+              <div className="trending-card-language">
+                <i className="fas fa-circle trending-card-language-icon" />
                 Javascript{" "}
                 <span className="trending-card-author">Build by</span>
                 <img
@@ -116,7 +119,7 @@ const Trending = () => {
                   alt=""
                   className="trending-card-author-img"
                 />
-              </p>
+              </div>
               <p>A group video call for the web. No signups. No downloads.</p>
               <div className="repoLable mb-0 pb-0">
                 {svgStar}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{svgFork}&nbsp;
@@ -141,10 +144,8 @@ const Trending = () => {
               <a href="#" className="trending-card-repos">
                 talk
               </a>
-              <p className="trending-card-language">
-                <div className="trending-card-language-icon ">
-                  <i className="fas fa-circle" />
-                </div>
+              <div className="trending-card-language">
+                <i className="fas fa-circle trending-card-language-icon" />
                 Javascript{" "}
                 <span className="trending-card-author">Build by</span>
                 <img
@@ -152,7 +153,7 @@ const Trending = () => {
                   alt=""
                   className="trending-card-author-img"
                 />
-              </p>
+              </div>
               <p>A group video call for the web. No signups. No downloads.</p>
               <div className="repoLable mb-0 pb-0">
                 {svgStar}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{svgFork}&nbsp;

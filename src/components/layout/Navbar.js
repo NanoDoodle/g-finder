@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Navbar = ({ icon, title }) => {
   const githubContext = useContext(GithubContext);
 
-  const { clearSearch } = githubContext;
+  const { clearSearch, getTrendingRepos } = githubContext;
 
   return (
     <nav className="navbar text-primary navbar-expand">
@@ -20,11 +20,7 @@ const Navbar = ({ icon, title }) => {
 
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">
-            <Link
-              className="nav-link text-primary"
-              onClick={clearSearch}
-              to="/trending"
-            >
+            <Link className="nav-link text-primary" to="/trending">
               Trending
             </Link>
           </li>

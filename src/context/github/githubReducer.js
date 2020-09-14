@@ -5,7 +5,8 @@ import {
   CLEAR_USERS,
   CLEAR_SEARCH,
   GET_REPOS,
-  GET_USER
+  GET_USER,
+  GET_TRENDING_REPOS,
 } from "../types";
 
 export default (state, action) => {
@@ -14,44 +15,48 @@ export default (state, action) => {
       return {
         ...state,
         users: action.payload,
-        loading: false
+        loading: false,
       };
     case SEARCH_REPOS:
       return {
         ...state,
         repos: action.payload,
-        loading: false
+        loading: false,
       };
     case GET_USER:
       return {
         ...state,
         user: action.payload,
-        loading: false
+        loading: false,
       };
     case CLEAR_USERS:
       return {
         ...state,
         users: [],
         repos: [],
-        loading: false
+        loading: false,
       };
     case CLEAR_SEARCH:
       return {
         ...state,
         users: [],
         repos: [],
-        loading: false
+        loading: false,
       };
     case GET_REPOS:
       return {
         ...state,
         userRepos: action.payload,
-        loading: false
+        loading: false,
       };
     case SET_LOADING:
       return {
         ...state,
-        loading: true
+        loading: true,
+      };
+    case GET_TRENDING_REPOS:
+      return {
+        ...state,
       };
     default:
       return state;

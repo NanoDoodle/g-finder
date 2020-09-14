@@ -1,83 +1,253 @@
-/*
-Error: Undefined variable: "$primaryd".
-        on line 5 of /Users/nan/Projects/g-finder/src/styles/scss/_trending.scss
-        from line 7 of /Users/nan/Projects/g-finder/src/styles/scss/style.scss
+.trending-card {
+  color: #404969;
+  width: 100%;
+  border-radius: 5%;
+  background-color: #fff;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  padding: 20px;
+  margin: 20px;
+}
 
-1: $primary: #404969;
-2: $light: #f8f9fa;
-3: $white: #fff;
-4: $gray: #e0e5e9;
-5: $orange: #dc552c;
-6: 
-7: @import "./trending";
-8: 
-9: body {
-10:   background-color: $light;
+.trending-card .trending-card-main-img {
+  border-radius: 20%;
+  width: 50px;
+  display: inline-block;
+  margin-bottom: 35px;
+}
 
-Backtrace:
-/Users/nan/Projects/g-finder/src/styles/scss/_trending.scss:5
-/Users/nan/Projects/g-finder/src/styles/scss/style.scss:7
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/script/tree/variable.rb:49:in `_perform'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/script/tree/node.rb:50:in `perform'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/script/tree/list_literal.rb:75:in `block in _perform'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/script/tree/list_literal.rb:75:in `map'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/script/tree/list_literal.rb:75:in `_perform'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/script/tree/node.rb:50:in `perform'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:402:in `visit_prop'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/base.rb:36:in `visit'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:79:in `block in with_base'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:135:in `with_frame'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:79:in `with_base'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:162:in `visit'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:444:in `block (2 levels) in visit_rule'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:444:in `map'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:444:in `block in visit_rule'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:442:in `visit_rule'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/base.rb:36:in `visit'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:79:in `block in with_base'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:135:in `with_frame'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:79:in `with_base'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:162:in `visit'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:329:in `block (2 levels) in visit_import'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:329:in `map'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:329:in `block in visit_import'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:88:in `block in with_import'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:135:in `with_frame'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:88:in `with_import'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:326:in `visit_import'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/base.rb:36:in `visit'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:79:in `block in with_base'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:135:in `with_frame'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:79:in `with_base'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:162:in `visit'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/base.rb:52:in `map'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:171:in `block in visit_children'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:170:in `visit_children'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:190:in `visit_root'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/base.rb:36:in `visit'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:161:in `visit'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:10:in `visit'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/tree/root_node.rb:36:in `css_tree'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/engine.rb:389:in `_render_with_sourcemap'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/engine.rb:307:in `render_with_sourcemap'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/exec/sass_scss.rb:391:in `run'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/exec/sass_scss.rb:63:in `process_result'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/exec/base.rb:52:in `parse'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/exec/base.rb:19:in `parse!'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/bin/sass:13:in `<top (required)>'
-/Applications/Koala.app/Contents/Resources/app.nw/bin/sass:22:in `load'
-/Applications/Koala.app/Contents/Resources/app.nw/bin/sass:22:in `<main>'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Undefined variable: \"$primaryd\".\A         on line 5 of /Users/nan/Projects/g-finder/src/styles/scss/_trending.scss\A         from line 7 of /Users/nan/Projects/g-finder/src/styles/scss/style.scss\A \A 1: $primary: #404969;\A 2: $light: #f8f9fa;\A 3: $white: #fff;\A 4: $gray: #e0e5e9;\A 5: $orange: #dc552c;\A 6: \A 7: @import \"./trending\";\A 8: \A 9: body {\A 10:   background-color: $light;"; }
+.trending-card .trending-card-header {
+  display: inline-block;
+  padding: 0px 15px 2px 20px;
+}
+
+.trending-card .trending-card-repos {
+  color: #dc552c;
+  font-weight: 900;
+  font-size: 30px;
+}
+
+.trending-card .trending-card-language-icon {
+  color: #dacd5b;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.trending-card .trending-card-author {
+  margin-left: 20px;
+}
+
+.trending-card .trending-card-author-img {
+  border-radius: 50%;
+  width: 30px;
+  display: inline-block;
+  margin-left: 15px;
+}
+
+body {
+  background-color: #f8f9fa;
+  font-family: "Titillium Web", sans-serif;
+}
+
+.navbar {
+  background-color: #fff;
+  border-bottom-color: #e0e5e9;
+  border-width: 0 0 2px;
+  border-style: solid;
+  height: 60px;
+}
+
+.navbar h1 {
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.navbar .navbar-nav {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.search {
+  position: relative;
+  height: 500px;
+}
+
+.search .title {
+  color: #404969;
+  font-size: 45px;
+  font-weight: 700;
+  margin-top: 130px;
+  margin-left: 80px;
+}
+
+.search .text-orange {
+  color: #dc552c;
+}
+
+.search .search-bg {
+  background: url("../../images/Brennatocat.png");
+  background-size: cover;
+  background-size: auto 650px;
+  background-repeat: no-repeat;
+  background-position: -60px -70px;
+}
+
+.search .search-form {
+  position: absolute;
+  top: 270px;
+}
+
+.search .search-form .search-input {
+  height: 50px;
+  border-radius: 0px;
+}
+
+.search .dropdown-search .dropdown-menu {
+  border-radius: 0px;
+}
+
+.search .dropdown-search .dropdown-toggle {
+  background-color: #fff;
+  border-color: #8d9296;
+  color: #404969;
+}
+
+.search .btn-search {
+  color: #f8f9fa;
+  background-color: #dc552c;
+}
+
+.search .btn-clear {
+  color: #f8f9fa;
+  background-color: #404969;
+}
+
+@media only screen and (max-width: 991px) {
+  .search .title {
+    font-size: 34px;
+  }
+}
+
+.scubatocat {
+  height: 400px;
+  position: relative;
+  top: -220px;
+  left: 30px;
+  z-index: -10;
+}
+
+.user-card {
+  border-radius: 0px;
+  border-width: 0px;
+  -webkit-box-shadow: -5px 10px 60px #e0e5e9;
+          box-shadow: -5px 10px 60px #e0e5e9;
+}
+
+.user-card .score {
+  color: #6c6e6e;
+}
+
+.user-card .btn {
+  background-color: #404969;
+}
+
+.repo-owner {
+  background-color: #fff;
+  border-radius: 0px;
+  border-width: 0px;
+  border-top-color: #dda08e;
+  border-top-width: 3px;
+  -webkit-box-shadow: -5px 10px 60px #e0e5e9;
+          box-shadow: -5px 10px 60px #e0e5e9;
+}
+
+.repo-owner .text-primary {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.profile {
+  background-color: rgba(64, 73, 105, 0.9);
+  color: #f8f9fa;
+  min-height: 350px;
+}
+
+.profile .bg-image {
+  position: absolute;
+  z-index: -10;
+  overflow: hidden;
+}
+
+.profile .bg-image img {
+  height: 550px;
+  -ms-flex-item-align: auto;
+      -ms-grid-row-align: auto;
+      align-self: auto;
+  position: relative;
+  top: -140px;
+}
+
+.profile .btn-visit {
+  background-color: rgba(220, 85, 44, 0.8);
+  color: #f8f9fa;
+}
+
+.userBadge {
+  border-radius: 0px;
+  background-color: #fff;
+  -webkit-box-shadow: -5px 10px 60px #e0e5e9;
+          box-shadow: -5px 10px 60px #e0e5e9;
+}
+
+.userBadge .badge {
+  padding: 5px 10px;
+  font-size: 12px;
+  color: #f8f9fa;
+  border-radius: 1px;
+}
+
+.repoOrder h4 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 0px;
+}
+
+.repoOrder .dropdown .dropdown-menu {
+  border-radius: 0px;
+}
+
+.repo-card {
+  border-radius: 0px;
+  border-width: 0px;
+  -webkit-box-shadow: -5px 10px 60px #e0e5e9;
+          box-shadow: -5px 10px 60px #e0e5e9;
+  height: 200px;
+  overflow: hidden;
+}
+
+.repo-card h5 {
+  height: 24px;
+  font-weight: 600;
+  overflow: hidden;
+}
+
+.repo-card .language {
+  font-weight: 600;
+  color: #404969;
+  font-size: 15px;
+}
+
+.repo-card .repoDescription {
+  height: 80px;
+  overflow: hidden;
+}
+
+.repo-card .repoLable {
+  color: #6c757d;
+  font-weight: 600;
+  font-size: 14px;
+  fill: #6c757d;
+}
+/*# sourceMappingURL=style.css.map */
