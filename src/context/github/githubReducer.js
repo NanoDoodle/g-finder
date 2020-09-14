@@ -7,6 +7,9 @@ import {
   GET_REPOS,
   GET_USER,
   GET_TRENDING_REPOS,
+  SET_SELECTED_LANGUAGE,
+  SET_SELECTED_TIME,
+  FILTER_TRENDING_REPOS,
 } from "../types";
 
 export default (state, action) => {
@@ -58,6 +61,11 @@ export default (state, action) => {
       return {
         ...state,
         trendingRepos: action.payload,
+      };
+    case SET_SELECTED_TIME:
+      return {
+        ...state,
+        selectedTime: action.payload,
       };
     default:
       return state;

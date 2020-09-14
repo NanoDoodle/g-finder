@@ -12,6 +12,8 @@ import {
   GET_REPOS,
   GET_USER,
   GET_TRENDING_REPOS,
+  SET_SELECTED_LANGUAGE,
+  SET_SELECTED_TIME,
 } from "../types";
 
 let githubClientId;
@@ -34,6 +36,8 @@ const GithubState = (props) => {
     userRepos: [],
     loading: false,
     trendingRepos: [],
+    selectedTime: "This Week",
+    selectedLanguage: "",
   };
 
   const [state, dispatch] = useReducer(GithubReducer, initialState);
@@ -42,11 +46,7 @@ const GithubState = (props) => {
   const searchUsers = async (text) => {
     clearSearch();
     setLoading();
-    console.log(process.env);
 
-    console.log(
-      `https://api.github.com/search/users?q=${text}&client_id=${githubClientId}&client_secret=${githubClientSecret}`
-    );
     const res = await axios.get(
       `https://api.github.com/search/users?q=${text}&client_id=${githubClientId}&client_secret=${githubClientSecret}`
     );
@@ -115,6 +115,14 @@ const GithubState = (props) => {
     });
   };
 
+  //Set Time
+  const setSelectedTime = (time) => {
+    dispatch({
+      type: SET_SELECTED_TIME,
+      payload: time,
+    });
+  };
+
   return (
     <GithubContext.Provider
       value={{
@@ -124,6 +132,8 @@ const GithubState = (props) => {
         userRepos: state.userRepos,
         loading: state.loading,
         trendingRepos: state.trendingRepos,
+        selectedTime: state.selectedTime,
+        selectedLanguage: state.selectedLanguage,
         searchUsers,
         searchRepos,
         clearUsers,
@@ -131,6 +141,7 @@ const GithubState = (props) => {
         getUser,
         getUserRepos,
         getTrendingRepos,
+        setSelectedTime,
       }}
     >
       {props.children}

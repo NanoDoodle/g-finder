@@ -3,7 +3,9 @@ $primary: #404969;
 
 .trending-page-header {
   color: $primary;
-  margin-top: 15px;
+  margin-top: 18px;
+
+  font-size: 28px;
 }
 
 .trending-card {
@@ -71,5 +73,18 @@ $primary: #404969;
   }
   .repoLable {
     font-size: 12px;
+  }
+}
+
+.trending-filter-container {
+  display: flex;
+  justify-content: flex-end;
+  .language-filter-dropdown {
+    margin-top: 18px;
+    margin-left: 20px;
+  }
+  .time-filter-dropdown {
+    margin-top: 18px;
+    margin-left: 20px;
   }
 }

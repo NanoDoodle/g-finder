@@ -1,6 +1,7 @@
 .trending-page-header {
   color: #404969;
-  margin-top: 15px; }
+  margin-top: 18px;
+  font-size: 28px; }
 
 .trending-card {
   color: #404969;
@@ -52,6 +53,16 @@
     overflow: hidden; }
   .trending-card .repoLable {
     font-size: 12px; }
+
+.trending-filter-container {
+  display: flex;
+  justify-content: flex-end; }
+  .trending-filter-container .language-filter-dropdown {
+    margin-top: 18px;
+    margin-left: 20px; }
+  .trending-filter-container .time-filter-dropdown {
+    margin-top: 18px;
+    margin-left: 20px; }
 
 body {
   background-color: #f8f9fa;

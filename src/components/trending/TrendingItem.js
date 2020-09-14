@@ -46,7 +46,7 @@ const TrendingItem = ({ trendingRepo }) => {
           <span className="trending-card-author">Build by</span>
           {trendingRepo.builtBy.map((user) => {
             return (
-              <a href={user.href} key={user.href}>
+              <a href={user.href} key={user.href} target="_blank">
                 <img
                   src={user.avatar}
                   alt=""
