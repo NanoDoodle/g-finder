@@ -21,15 +21,15 @@ const TrendingList = () => {
                 />
                 <div className="trending-card-header">
                   <h4>{trendingRepo.author}</h4>
-                  <p className="">View Profile</p>
+                  <p>View Profile</p>
                 </div>
               </div>
               <a href="#" className="trending-card-repos">
                 {trendingRepo.name}
               </a>
               <div className="trending-card-language">
-                <i className="fas fa-circle trending-card-language-icon" />
-                Javascript{" "}
+                <i className="fas fa-circle fa-sm trending-card-language-icon" />
+                {trendingRepo.language}{" "}
                 <span className="trending-card-author">Build by</span>
                 {trendingRepo.builtBy.map((user) => {
                   return (
@@ -41,15 +41,20 @@ const TrendingList = () => {
                   );
                 })}
               </div>
-              <p>A group video call for the web. No signups. No downloads.</p>
+              <p className="trending-card-description">
+                {trendingRepo.description}
+              </p>
               <div className="repoLable mb-0 pb-0">
                 <SvgWatch />
+                &nbsp;&nbsp;
                 {trendingRepo.stars}
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <SvgFork />
+                &nbsp;&nbsp;
                 {trendingRepo.forks}
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <SvgStar />
+                &nbsp;&nbsp;
                 {trendingRepo.currentPeriodStars}
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               </div>
@@ -57,78 +62,6 @@ const TrendingList = () => {
           </div>
         );
       })}
-
-      <div className="col-lg-4 col-md-6 col-sm-12">
-        <div className="trending-card">
-          <div>
-            <img
-              className="trending-card-main-img mx-auto"
-              src={require("../../images/m1.jpeg")}
-            />
-            <div className="trending-card-header">
-              <h4>vasnathv</h4>
-              <p className="">View Profile</p>
-            </div>
-          </div>
-          <a href="#" className="trending-card-repos">
-            talk
-          </a>
-          <div className="trending-card-language">
-            <i className="fas fa-circle trending-card-language-icon" />
-            Javascript <span className="trending-card-author">Build by</span>
-            <img
-              src={require("../../images/m1.jpeg")}
-              alt=""
-              className="trending-card-author-img"
-            />
-          </div>
-          <p>A group video call for the web. No signups. No downloads.</p>
-          <div className="repoLable mb-0 pb-0">
-            <SvgWatch />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <SvgFork />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <SvgStar />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          </div>
-        </div>
-      </div>
-
-      <div className="col-lg-4 col-md-6 col-sm-12">
-        <div className="trending-card">
-          <div>
-            <img
-              className="trending-card-main-img mx-auto"
-              src={require("../../images/m1.jpeg")}
-            />
-            <div className="trending-card-header">
-              <h4>vasnathv</h4>
-              <p className="">View Profile</p>
-            </div>
-          </div>
-          <a href="#" className="trending-card-repos">
-            talk
-          </a>
-          <div className="trending-card-language">
-            <i className="fas fa-circle trending-card-language-icon" />
-            Javascript <span className="trending-card-author">Build by</span>
-            <img
-              src={require("../../images/m1.jpeg")}
-              alt=""
-              className="trending-card-author-img"
-            />
-          </div>
-          <p>A group video call for the web. No signups. No downloads.</p>
-          <div className="repoLable mb-0 pb-0">
-            <SvgWatch />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <SvgFork />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <SvgStar />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          </div>
-        </div>
-      </div>
     </div>
   );
 };

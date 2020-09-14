@@ -13,24 +13,37 @@
     margin-bottom: 35px; }
   .trending-card .trending-card-header {
     display: inline-block;
-    padding: 0px 15px 2px 20px; }
+    padding: 0px 20px; }
     .trending-card .trending-card-header h4 {
+      font-size: 18px;
+      font-weight: 600; }
+    .trending-card .trending-card-header p {
       font-size: 15px; }
   .trending-card .trending-card-repos {
     color: #dc552c;
-    font-weight: 900;
-    font-size: 30px; }
-  .trending-card .trending-card-language-icon {
-    color: #dacd5b;
-    display: inline-block;
-    margin-right: 8px; }
+    font-size: 20px; }
+  .trending-card .trending-card-language {
+    font-size: 13px; }
+    .trending-card .trending-card-language .trending-card-language-icon {
+      color: #dacd5b;
+      display: inline-block;
+      margin-right: 8px; }
+    .trending-card .trending-card-language p {
+      font-size: 16px; }
   .trending-card .trending-card-author {
     margin-left: 20px; }
   .trending-card .trending-card-author-img {
     border-radius: 50%;
-    width: 30px;
+    width: 20px;
     display: inline-block;
-    margin-left: 15px; }
+    margin-left: 10px; }
+  .trending-card .trending-card-description {
+    margin-top: 10px;
+    font-size: 14px;
+    height: 60px;
+    overflow: hidden; }
+  .trending-card .repoLable {
+    font-size: 12px; }
 
 body {
   background-color: #f8f9fa;
