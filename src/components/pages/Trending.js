@@ -11,8 +11,8 @@ const Trending = () => {
 
   return (
     <div>
-      <h1>Trending Repos</h1>
       <div className="container">
+        <h1 className="trending-page-header">Trending Repos</h1>
         <TrendingList />
       </div>
     </div>

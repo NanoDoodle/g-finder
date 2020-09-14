@@ -1,6 +1,12 @@
 $orange: #dc552c;
 $primary: #404969;
 
+.trending-page-header {
+  color: $primary;
+  margin-top: 15px;
+  
+}
+
 .trending-card {
   color: $primary;
   width: 100%;
@@ -8,7 +14,7 @@ $primary: #404969;
   box-shadow: -5px 10px 60px $gray;
   transition: all 0.3s ease-in-out;
   padding: 20px;
-  margin: 20px;
+  margin: 20px 0;
 
   .trending-card-main-img {
     border-radius: 20%;
