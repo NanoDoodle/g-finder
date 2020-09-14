@@ -12,7 +12,7 @@ const TrendingList = () => {
       {console.log(trendingRepos)}
       {trendingRepos.map((trendingRepo) => {
         return (
-          <div className="col-lg-4 col-md-6 col-sm-12">
+          <div className="col-lg-4 col-md-6 col-sm-12" key={trendingRepo.url}>
             <div className="trending-card">
               <div>
                 <img
@@ -24,18 +24,26 @@ const TrendingList = () => {
                   <p>View Profile</p>
                 </div>
               </div>
-              <a href="#" className="trending-card-repos">
-                {trendingRepo.name}
-              </a>
-              <div className="trending-card-language">
-                <i className="fas fa-circle fa-sm trending-card-language-icon" />
-                {trendingRepo.language}{" "}
+              <div className="trending-card-repos">
+                <a href="#">{trendingRepo.name}</a>
+              </div>
+              <div className="trending-card-info">
+                {trendingRepo.language ? (
+                  <span className="trending-card-language">
+                    <i className="fas fa-circle fa-sm trending-card-language-icon" />
+                    {trendingRepo.language}
+                  </span>
+                ) : (
+                  <span></span>
+                )}
                 <span className="trending-card-author">Build by</span>
                 {trendingRepo.builtBy.map((user) => {
                   return (
+                    
                     <img
                       src={user.avatar}
                       alt=""
+                      key={user.href}
                       className="trending-card-author-img"
                     />
                   );

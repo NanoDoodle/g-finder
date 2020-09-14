@@ -4,7 +4,6 @@ $primary: #404969;
 .trending-card {
   color: $primary;
   width: 100%;
-
   background-color: #fff;
   box-shadow: -5px 10px 60px $gray;
   transition: all 0.3s ease-in-out;
@@ -29,28 +28,32 @@ $primary: #404969;
     }
   }
   .trending-card-repos {
-    color: $orange;
     font-size: 20px;
+    height: 30px;
+    overflow: hidden;
+    a {
+      color: $orange;
+    }
   }
-  .trending-card-language {
+
+  .trending-card-info {
+    margin-top: 5px;
     font-size: 13px;
+    .trending-card-language {
+      margin-right: 20px;
+    }
     .trending-card-language-icon {
-      color: rgb(218, 205, 91);
+      color: $orange;
       display: inline-block;
       margin-right: 8px;
     }
-    p {
-      font-size: 16px;
-    }
   }
-  .trending-card-author {
-    margin-left: 20px;
-  }
+
   .trending-card-author-img {
     border-radius: 50%;
-    width: 20px;
+    width: 18px;
     display: inline-block;
-    margin-left: 10px;
+    margin-left: 3px;
   }
   .trending-card-description {
     margin-top: 10px;

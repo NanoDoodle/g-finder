@@ -20,23 +20,25 @@
     .trending-card .trending-card-header p {
       font-size: 15px; }
   .trending-card .trending-card-repos {
-    color: #dc552c;
-    font-size: 20px; }
-  .trending-card .trending-card-language {
+    font-size: 20px;
+    height: 30px;
+    overflow: hidden; }
+    .trending-card .trending-card-repos a {
+      color: #dc552c; }
+  .trending-card .trending-card-info {
+    margin-top: 5px;
     font-size: 13px; }
-    .trending-card .trending-card-language .trending-card-language-icon {
-      color: #dacd5b;
+    .trending-card .trending-card-info .trending-card-language {
+      margin-right: 20px; }
+    .trending-card .trending-card-info .trending-card-language-icon {
+      color: #dc552c;
       display: inline-block;
       margin-right: 8px; }
-    .trending-card .trending-card-language p {
-      font-size: 16px; }
-  .trending-card .trending-card-author {
-    margin-left: 20px; }
   .trending-card .trending-card-author-img {
     border-radius: 50%;
-    width: 20px;
+    width: 18px;
     display: inline-block;
-    margin-left: 10px; }
+    margin-left: 3px; }
   .trending-card .trending-card-description {
     margin-top: 10px;
     font-size: 14px;
