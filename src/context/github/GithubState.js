@@ -14,6 +14,7 @@ import {
   GET_TRENDING_REPOS,
   SET_SELECTED_LANGUAGE,
   SET_SELECTED_TIME,
+  FILTER_TRENDING_REPOS,
 } from "../types";
 
 let githubClientId;
@@ -123,6 +124,18 @@ const GithubState = (props) => {
     });
   };
 
+  //Filter Trending Repos
+  const filterTrendingRepos = async (language, time) => {
+    setLoading();
+    const res = await axios.get(
+      `https://ghapi.huchen.dev/repositories?language=${language}&since=${time}`
+    );
+    dispatch({
+      type: FILTER_TRENDING_REPOS,
+      payload: res.data,
+    });
+  };
+
   return (
     <GithubContext.Provider
       value={{
@@ -142,6 +155,7 @@ const GithubState = (props) => {
         getUserRepos,
         getTrendingRepos,
         setSelectedTime,
+        filterTrendingRepos,
       }}
     >
       {props.children}

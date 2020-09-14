@@ -61,6 +61,7 @@ export default (state, action) => {
       return {
         ...state,
         trendingRepos: action.payload,
+        loading: false,
       };
     case SET_SELECTED_TIME:
       return {

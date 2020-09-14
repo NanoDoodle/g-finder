@@ -4,9 +4,15 @@ import TrendingList from "../trending/TrendingList";
 
 const Trending = () => {
   const githubContext = useContext(GithubContext);
-  const { getTrendingRepos, setSelectedTime, selectedTime } = githubContext;
+  const {
+    getTrendingRepos,
+    filterTrendingRepos,
+    setSelectedTime,
+    selectedTime,
+  } = githubContext;
   useEffect(() => {
     getTrendingRepos();
+    filterTrendingRepos("c%23", "weekly");
   }, []);
 
   return (
