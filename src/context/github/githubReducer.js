@@ -64,6 +64,12 @@ export default (state, action) => {
         trendingRepos: action.payload,
         loading: false,
       };
+    case FILTER_TRENDING_REPOS:
+      return {
+        ...state,
+        trendingRepos: action.payload,
+        loading: false,
+      };
     case GET_LANGUAGE_LIST:
       return {
         ...state,
@@ -80,12 +86,7 @@ export default (state, action) => {
         ...state,
         selectedLanguage: action.payload,
       };
-    case FILTER_TRENDING_REPOS:
-      return {
-        ...state,
-        trendingRepos: action.payload,
-        loading: false,
-      };
+
     default:
       return state;
   }

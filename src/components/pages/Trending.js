@@ -12,6 +12,7 @@ const Trending = () => {
     setSelectedLanguage,
     selectedLanguage,
     getLanguageList,
+    languageList,
   } = githubContext;
   useEffect(() => {
     getTrendingRepos();
@@ -43,27 +44,28 @@ const Trending = () => {
                     class="dropdown-menu"
                     aria-labelledby="dropdownMenuButton"
                   >
-                    <a
-                      class="dropdown-item"
-                      href="#"
-                      onClick={() => setSelectedLanguage("Action")}
-                    >
-                      Action
-                    </a>
-                    <a
-                      class="dropdown-item"
-                      href="#"
-                      onClick={() => setSelectedLanguage(" o Action")}
-                    >
-                      Another action
-                    </a>
-                    <a
-                      class="dropdown-item"
-                      href="#"
-                      onClick={() => setSelectedLanguage("oo Action")}
-                    >
-                      Something else here
-                    </a>
+                    {languageList.map((language) => {
+                      return (
+                        <a
+                          class="dropdown-item"
+                          href="#"
+                          onClick={() => {
+                            setSelectedLanguage(language.name);
+                            setSelectedTime("This Week");
+                            filterTrendingRepos(
+                              language.urlParam,
+                              selectedTime === "Today"
+                                ? "daily"
+                                : selectedTime === "This Week"
+                                ? "weekly"
+                                : "monthly"
+                            );
+                          }}
+                        >
+                          {language.name}
+                        </a>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
@@ -91,6 +93,7 @@ const Trending = () => {
                         filterTrendingRepos("", "daily");
                       }}
                     >
+                      {" "}
                       Today
                     </a>
                     <a

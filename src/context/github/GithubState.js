@@ -39,6 +39,7 @@ const GithubState = (props) => {
     loading: false,
     trendingRepos: [],
     selectedTime: "This Week",
+    languageList: [],
     selectedLanguage: "All Languages",
   };
 
@@ -126,6 +127,7 @@ const GithubState = (props) => {
       payload: res.data,
     });
   };
+
   //Set Time
   const setSelectedTime = (time) => {
     dispatch({
@@ -166,6 +168,7 @@ const GithubState = (props) => {
         trendingRepos: state.trendingRepos,
         selectedTime: state.selectedTime,
         selectedLanguage: state.selectedLanguage,
+        languageList: state.languageList,
         searchUsers,
         searchRepos,
         clearUsers,
