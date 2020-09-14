@@ -5,20 +5,34 @@ import { ReactComponent as SvgWatch } from "../../images/svgWatch.svg";
 
 const TrendingItem = ({ trendingRepo }) => {
   return (
-    <div className="col-lg-4 col-md-6 col-sm-12" >
+    <div className="col-lg-4 col-md-6 col-sm-12">
       <div className="trending-card">
         <div>
-          <img
-            className="trending-card-main-img mx-auto"
-            src={trendingRepo.avatar}
-          />
+          <a href={`https://github.com/${trendingRepo.author}`} target="_blank">
+            <img
+              className="trending-card-main-img mx-auto"
+              src={trendingRepo.avatar}
+            />
+          </a>
           <div className="trending-card-header">
-            <h4>{trendingRepo.author}</h4>
-            <p>View Profile</p>
+            <a
+              href={`https://github.com/${trendingRepo.author}`}
+              target="_blank"
+            >
+              <h4>{trendingRepo.author}</h4>
+            </a>
+            <a
+              href={`https://github.com/${trendingRepo.author}`}
+              target="_blank"
+            >
+              View Profile
+            </a>
           </div>
         </div>
         <div className="trending-card-repos">
-          <a href="#">{trendingRepo.name}</a>
+          <a href={trendingRepo.url} target="_blank">
+            {trendingRepo.name}
+          </a>
         </div>
         <div className="trending-card-info">
           {trendingRepo.language ? (
@@ -32,12 +46,13 @@ const TrendingItem = ({ trendingRepo }) => {
           <span className="trending-card-author">Build by</span>
           {trendingRepo.builtBy.map((user) => {
             return (
-              <img
-                src={user.avatar}
-                alt=""
-                key={user.href}
-                className="trending-card-author-img"
-              />
+              <a href={user.href} key={user.href}>
+                <img
+                  src={user.avatar}
+                  alt=""
+                  className="trending-card-author-img"
+                />
+              </a>
             );
           })}
         </div>

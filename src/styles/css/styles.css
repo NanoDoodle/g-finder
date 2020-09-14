@@ -21,8 +21,10 @@
     .trending-card .trending-card-header h4 {
       font-size: 18px;
       font-weight: 600; }
-    .trending-card .trending-card-header p {
+    .trending-card .trending-card-header a {
       font-size: 15px; }
+      .trending-card .trending-card-header a:hover {
+        text-decoration: none; }
   .trending-card .trending-card-repos {
     font-size: 20px;
     height: 30px;

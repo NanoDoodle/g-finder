@@ -4,7 +4,6 @@ $primary: #404969;
 .trending-page-header {
   color: $primary;
   margin-top: 15px;
-  
 }
 
 .trending-card {
@@ -29,8 +28,11 @@ $primary: #404969;
       font-size: 18px;
       font-weight: 600;
     }
-    p {
+    a {
       font-size: 15px;
+      &:hover {
+        text-decoration: none;
+      }
     }
   }
   .trending-card-repos {
