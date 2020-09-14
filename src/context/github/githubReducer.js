@@ -57,6 +57,7 @@ export default (state, action) => {
     case GET_TRENDING_REPOS:
       return {
         ...state,
+        trendingRepos: action.payload,
       };
     default:
       return state;

@@ -33,6 +33,7 @@ const GithubState = (props) => {
     repos: [],
     userRepos: [],
     loading: false,
+    trendingRepos: [],
   };
 
   const [state, dispatch] = useReducer(GithubReducer, initialState);
@@ -122,6 +123,7 @@ const GithubState = (props) => {
         repos: state.repos,
         userRepos: state.userRepos,
         loading: state.loading,
+        trendingRepos: state.trendingRepos,
         searchUsers,
         searchRepos,
         clearUsers,

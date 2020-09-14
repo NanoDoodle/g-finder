@@ -4,12 +4,12 @@ $primary: #404969;
 .trending-card {
   color: $primary;
   width: 100%;
-  border-radius: 5%;
+  
   background-color: #fff;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  box-shadow: -5px 10px 60px $gray;
   transition: all 0.3s ease-in-out;
   padding: 20px;
-  margin:20px;
+  margin: 20px;
 
   .trending-card-main-img {
     border-radius: 20%;
@@ -20,6 +20,9 @@ $primary: #404969;
   .trending-card-header {
     display: inline-block;
     padding: 0px 15px 2px 20px;
+    h4 {
+      font-size: 15px;
+    }
   }
   .trending-card-repos {
     color: $orange;
