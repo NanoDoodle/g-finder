@@ -68,6 +68,12 @@ export default (state, action) => {
         ...state,
         selectedTime: action.payload,
       };
+    case FILTER_TRENDING_REPOS:
+      return {
+        ...state,
+        trendingRepos: action.payload,
+        loading: false,
+      };
     default:
       return state;
   }

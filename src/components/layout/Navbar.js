@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Navbar = ({ icon, title }) => {
   const githubContext = useContext(GithubContext);
 
-  const { clearSearch, getTrendingRepos } = githubContext;
+  const { clearSearch } = githubContext;
 
   return (
     <nav className="navbar text-primary navbar-expand">

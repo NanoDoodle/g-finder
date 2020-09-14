@@ -63,6 +63,8 @@
   .trending-filter-container .time-filter-dropdown {
     margin-top: 18px;
     margin-left: 20px; }
+    .trending-filter-container .time-filter-dropdown .time-filter-dropdown-btn {
+      width: 132.89px; }
 
 body {
   background-color: #f8f9fa;

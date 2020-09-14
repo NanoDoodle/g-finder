@@ -130,6 +130,7 @@ const GithubState = (props) => {
     const res = await axios.get(
       `https://ghapi.huchen.dev/repositories?language=${language}&since=${time}`
     );
+    console.log(res.data);
     dispatch({
       type: FILTER_TRENDING_REPOS,
       payload: res.data,

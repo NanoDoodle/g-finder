@@ -12,7 +12,6 @@ const Trending = () => {
   } = githubContext;
   useEffect(() => {
     getTrendingRepos();
-    filterTrendingRepos("c%23", "weekly");
   }, []);
 
   return (
@@ -53,9 +52,9 @@ const Trending = () => {
                 </div>
               </div>
               <div className="time-filter-dropdown">
-                <div class="dropdown time-filter-dropdown-btn">
+                <div class="dropdown ">
                   <button
-                    class="btn btn-secondary dropdown-toggle"
+                    class="btn btn-secondary dropdown-toggle time-filter-dropdown-btn"
                     type="button"
                     id="dropdownMenuButton"
                     data-toggle="dropdown"
@@ -71,21 +70,30 @@ const Trending = () => {
                     <a
                       class="dropdown-item"
                       href="#"
-                      onClick={() => setSelectedTime("Today")}
+                      onClick={() => {
+                        setSelectedTime("Today");
+                        filterTrendingRepos("", "daily");
+                      }}
                     >
                       Today
                     </a>
                     <a
                       class="dropdown-item"
                       href="#"
-                      onClick={() => setSelectedTime("This Week")}
+                      onClick={() => {
+                        setSelectedTime("This Week");
+                        filterTrendingRepos("", "weekly");
+                      }}
                     >
                       This Week
                     </a>
                     <a
                       class="dropdown-item"
                       href="#"
-                      onClick={() => setSelectedTime("This month")}
+                      onClick={() => {
+                        setSelectedTime("This month");
+                        filterTrendingRepos("", "monthly");
+                      }}
                     >
                       This month
                     </a>
