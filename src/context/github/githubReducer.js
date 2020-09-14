@@ -7,6 +7,7 @@ import {
   GET_REPOS,
   GET_USER,
   GET_TRENDING_REPOS,
+  GET_LANGUAGE_LIST,
   SET_SELECTED_LANGUAGE,
   SET_SELECTED_TIME,
   FILTER_TRENDING_REPOS,
@@ -63,10 +64,21 @@ export default (state, action) => {
         trendingRepos: action.payload,
         loading: false,
       };
+    case GET_LANGUAGE_LIST:
+      return {
+        ...state,
+        languageList: action.payload,
+        loading: false,
+      };
     case SET_SELECTED_TIME:
       return {
         ...state,
         selectedTime: action.payload,
+      };
+    case SET_SELECTED_LANGUAGE:
+      return {
+        ...state,
+        selectedLanguage: action.payload,
       };
     case FILTER_TRENDING_REPOS:
       return {

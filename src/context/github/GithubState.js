@@ -12,6 +12,7 @@ import {
   GET_REPOS,
   GET_USER,
   GET_TRENDING_REPOS,
+  GET_LANGUAGE_LIST,
   SET_SELECTED_LANGUAGE,
   SET_SELECTED_TIME,
   FILTER_TRENDING_REPOS,
@@ -38,7 +39,7 @@ const GithubState = (props) => {
     loading: false,
     trendingRepos: [],
     selectedTime: "This Week",
-    selectedLanguage: "",
+    selectedLanguage: "All Languages",
   };
 
   const [state, dispatch] = useReducer(GithubReducer, initialState);
@@ -116,11 +117,28 @@ const GithubState = (props) => {
     });
   };
 
+  //Get Language List
+  const getLanguageList = async () => {
+    setLoading();
+    const res = await axios.get(`https://ghapi.huchen.dev/languages`);
+    dispatch({
+      type: GET_LANGUAGE_LIST,
+      payload: res.data,
+    });
+  };
   //Set Time
   const setSelectedTime = (time) => {
     dispatch({
       type: SET_SELECTED_TIME,
       payload: time,
+    });
+  };
+
+  //Set Language
+  const setSelectedLanguage = (language) => {
+    dispatch({
+      type: SET_SELECTED_LANGUAGE,
+      payload: language,
     });
   };
 
@@ -157,6 +175,8 @@ const GithubState = (props) => {
         getTrendingRepos,
         setSelectedTime,
         filterTrendingRepos,
+        setSelectedLanguage,
+        getLanguageList,
       }}
     >
       {props.children}

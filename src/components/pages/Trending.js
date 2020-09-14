@@ -9,9 +9,13 @@ const Trending = () => {
     filterTrendingRepos,
     setSelectedTime,
     selectedTime,
+    setSelectedLanguage,
+    selectedLanguage,
+    getLanguageList,
   } = githubContext;
   useEffect(() => {
     getTrendingRepos();
+    getLanguageList();
   }, []);
 
   return (
@@ -33,19 +37,31 @@ const Trending = () => {
                     aria-haspopup="true"
                     aria-expanded="false"
                   >
-                    All Languages
+                    {selectedLanguage}
                   </button>
                   <div
                     class="dropdown-menu"
                     aria-labelledby="dropdownMenuButton"
                   >
-                    <a class="dropdown-item" href="#">
+                    <a
+                      class="dropdown-item"
+                      href="#"
+                      onClick={() => setSelectedLanguage("Action")}
+                    >
                       Action
                     </a>
-                    <a class="dropdown-item" href="#">
+                    <a
+                      class="dropdown-item"
+                      href="#"
+                      onClick={() => setSelectedLanguage(" o Action")}
+                    >
                       Another action
                     </a>
-                    <a class="dropdown-item" href="#">
+                    <a
+                      class="dropdown-item"
+                      href="#"
+                      onClick={() => setSelectedLanguage("oo Action")}
+                    >
                       Something else here
                     </a>
                   </div>
