@@ -29,9 +29,9 @@ const Trending = () => {
           <div className="col-lg-6">
             <div className="trending-filter-container">
               <div className="language-filter-dropdown">
-                <div class="dropdown language-filter-dropdown-btn">
+                <div className="dropdown ">
                   <button
-                    class="btn btn-secondary dropdown-toggle"
+                    className="btn btn-secondary dropdown-toggle language-filter-dropdown-btn"
                     type="button"
                     id="dropdownMenuButton"
                     data-toggle="dropdown"
@@ -41,17 +41,43 @@ const Trending = () => {
                     {selectedLanguage}
                   </button>
                   <div
-                    class="dropdown-menu"
+                    className="dropdown-menu"
                     aria-labelledby="dropdownMenuButton"
                   >
+                    <p>Select a language</p>
+                    <div className="dropdown-search-bar-container">
+                      <input
+                        type="text"
+                        className="dropdown-search-bar"
+                        placeholder="Filter by language"
+                      />
+                    </div>
+                    <a
+                      className="dropdown-item"
+                      href="#"
+                      onClick={() => {
+                        setSelectedLanguage("All languages");
+                        filterTrendingRepos(
+                          "",
+                          selectedTime === "Today"
+                            ? "daily"
+                            : selectedTime === "This Week"
+                            ? "weekly"
+                            : "monthly"
+                        );
+                      }}
+                    >
+                      {" "}
+                      All languages
+                    </a>
                     {languageList.map((language) => {
                       return (
                         <a
-                          class="dropdown-item"
+                          className="dropdown-item"
                           href="#"
+                          key={language.urlParam}
                           onClick={() => {
                             setSelectedLanguage(language.name);
-                            setSelectedTime("This Week");
                             filterTrendingRepos(
                               language.urlParam,
                               selectedTime === "Today"
@@ -70,9 +96,9 @@ const Trending = () => {
                 </div>
               </div>
               <div className="time-filter-dropdown">
-                <div class="dropdown ">
+                <div className="dropdown ">
                   <button
-                    class="btn btn-secondary dropdown-toggle time-filter-dropdown-btn"
+                    className="btn btn-secondary dropdown-toggle time-filter-dropdown-btn"
                     type="button"
                     id="dropdownMenuButton"
                     data-toggle="dropdown"
@@ -82,11 +108,11 @@ const Trending = () => {
                     {selectedTime}
                   </button>
                   <div
-                    class="dropdown-menu"
+                    className="dropdown-menu"
                     aria-labelledby="dropdownMenuButton"
                   >
                     <a
-                      class="dropdown-item"
+                      className="dropdown-item"
                       href="#"
                       onClick={() => {
                         setSelectedTime("Today");
@@ -97,7 +123,7 @@ const Trending = () => {
                       Today
                     </a>
                     <a
-                      class="dropdown-item"
+                      className="dropdown-item"
                       href="#"
                       onClick={() => {
                         setSelectedTime("This Week");
@@ -107,7 +133,7 @@ const Trending = () => {
                       This Week
                     </a>
                     <a
-                      class="dropdown-item"
+                      className="dropdown-item"
                       href="#"
                       onClick={() => {
                         setSelectedTime("This month");

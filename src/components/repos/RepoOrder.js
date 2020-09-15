@@ -37,9 +37,9 @@ const RepoOrder = ({ userRepos }) => {
         </h4>
       </div>
       <div className="col-sm-2 ml-auto text-center p-0">
-        <div class="dropdown  ">
+        <div className="dropdown  ">
           <button
-            class="btn btn-secondary btn-block dropdown-toggle py-0 mr-1"
+            className="btn btn-secondary btn-block dropdown-toggle py-0 mr-1"
             type="button"
             id="dropdownMenuButton"
             data-toggle="dropdown"
@@ -49,11 +49,11 @@ const RepoOrder = ({ userRepos }) => {
             Ordered by
           </button>
           <div
-            class="dropdown-menu dropdown-menu-right"
+            className="dropdown-menu dropdown-menu-right"
             aria-labelledby="dropdownMenuButton"
           >
             <a
-              class="dropdown-item"
+              className="dropdown-item"
               href="#!"
               value="star"
               onClick={onClickStar}
@@ -61,7 +61,7 @@ const RepoOrder = ({ userRepos }) => {
               Star
             </a>
             <a
-              class="dropdown-item"
+              className="dropdown-item"
               href="#!"
               value="watch"
               onClick={onClickWatch}
@@ -69,7 +69,7 @@ const RepoOrder = ({ userRepos }) => {
               Watch
             </a>
             <a
-              class="dropdown-item"
+              className="dropdown-item"
               href="#!"
               value="fork"
               onClick={onClickFork}
@@ -77,7 +77,7 @@ const RepoOrder = ({ userRepos }) => {
               Fork
             </a>
             {/* <a
-              class='dropdown-item'
+              className='dropdown-item'
               href='#!'
               value='update'
               onClick={onClickUpdate}

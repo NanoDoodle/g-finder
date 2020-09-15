@@ -79,9 +79,32 @@ $primary: #404969;
 .trending-filter-container {
   display: flex;
   justify-content: flex-end;
+
   .language-filter-dropdown {
     margin-top: 18px;
     margin-left: 20px;
+    .dropdown-menu {
+      overflow: auto;
+      max-height: 400px;
+      p {
+        border-bottom: 1px solid rgba(245, 244, 244, 0.26);
+        box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.05);
+        padding-left: 10px;
+        letter-spacing: 0.5px;
+        font-weight: 600;
+        color: $primary;
+      }
+      .dropdown-search-bar-container {
+        border-bottom: 1px solid rgba(245, 244, 244, 0.26);
+        box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.05);
+        height: 40px;
+
+        .dropdown-search-bar {
+          width: 230px;
+          margin-left: 10px;
+        }
+      }
+    }
   }
   .time-filter-dropdown {
     margin-top: 18px;
