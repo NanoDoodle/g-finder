@@ -4,6 +4,7 @@ $primary: #404969;
 .trending-page-header {
   color: $primary;
   margin-top: 18px;
+  margin-left: 20px;
 
   font-size: 28px;
 }
@@ -116,13 +117,16 @@ $primary: #404969;
     }
   }
 }
-
+@media (max-width: 992px) {
+  .trending-filter-container {
+    justify-content: flex-start;
+  }
+}
 .trending-repos-no-result {
   font-size: 30px;
   color: $primary;
   // margin: 0 auto;
   display: inline-block;
-
 }
 .trending-repos-no-result-image {
   border-radius: 50%;

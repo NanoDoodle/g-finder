@@ -38,7 +38,7 @@ const GithubState = (props) => {
     user: {},
     repos: [],
     userRepos: [],
-    loading: true,
+    loading: false,
     trendingRepos: [],
     selectedTime: "This Week",
     languageList: [],

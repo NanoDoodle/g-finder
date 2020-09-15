@@ -1,6 +1,7 @@
 .trending-page-header {
   color: #404969;
   margin-top: 18px;
+  margin-left: 20px;
   font-size: 28px; }
 
 .trending-card {
@@ -85,6 +86,9 @@
     .trending-filter-container .time-filter-dropdown .time-filter-dropdown-btn {
       width: 132.89px; }
 
+@media (max-width: 992px) {
+  .trending-filter-container {
+    justify-content: flex-start; } }
 .trending-repos-no-result {
   font-size: 30px;
   color: #404969;
