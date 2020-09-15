@@ -11,6 +11,10 @@ import {
   SET_SELECTED_LANGUAGE,
   SET_SELECTED_TIME,
   FILTER_TRENDING_REPOS,
+  FILTER_LANGUAGE,
+  CLEAR_FILTER,
+  // SET_CURRENT,
+  // CLEAR_CURRENT,
 } from "../types";
 
 export default (state, action) => {
@@ -86,7 +90,29 @@ export default (state, action) => {
         ...state,
         selectedLanguage: action.payload,
       };
-
+    case FILTER_LANGUAGE:
+      return {
+        ...state,
+        filteredLanguage: state.languageList.filter((language) => {
+          const regex = new RegExp(`${action.payload}`, "gi");
+          return language.name.match(regex);
+        }),
+      };
+    case CLEAR_FILTER:
+      return {
+        ...state,
+        filterd: null,
+      };
+    // case CLEAR_CURRENT:
+    //   return {
+    //     ...state,
+    //     current: null,
+    //   };
+    // case SET_CURRENT:
+    //   return {
+    //     ...state,
+    //     current: action.payload,
+    //   };
     default:
       return state;
   }

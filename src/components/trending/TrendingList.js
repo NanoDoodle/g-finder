@@ -5,6 +5,7 @@ import TrendingItem from "./TrendingItem";
 const TrendingList = () => {
   const githubContext = useContext(GithubContext);
   const { trendingRepos } = githubContext;
+
   return (
     <div className="row">
       {trendingRepos.map((trendingRepo) => {

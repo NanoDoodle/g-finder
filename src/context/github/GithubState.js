@@ -16,6 +16,10 @@ import {
   SET_SELECTED_LANGUAGE,
   SET_SELECTED_TIME,
   FILTER_TRENDING_REPOS,
+  FILTER_LANGUAGE,
+  CLEAR_FILTER,
+  // SET_CURRENT,
+  // CLEAR_CURRENT,
 } from "../types";
 
 let githubClientId;
@@ -41,6 +45,8 @@ const GithubState = (props) => {
     selectedTime: "This Week",
     languageList: [],
     selectedLanguage: "All Languages",
+    filteredLanguage: null,
+    current: null,
   };
 
   const [state, dispatch] = useReducer(GithubReducer, initialState);
@@ -157,6 +163,29 @@ const GithubState = (props) => {
     });
   };
 
+  //Filter Language
+  const filterLanguage = (text) => {
+    dispatch({
+      type: FILTER_LANGUAGE,
+      payload: text,
+    });
+  };
+
+  //Clear Filter
+  const clearFilter = () => {
+    dispatch({ type: CLEAR_FILTER });
+  };
+
+  // //Set Current Language
+  // const setCurrent = (language) => {
+  //   dispatch({ type: SET_CURRENT, payload: language });
+  // };
+
+  // //Clear Current Language
+  // const clearCurrent = () => {
+  //   dispatch({ type: CLEAR_CURRENT });
+  // };
+
   return (
     <GithubContext.Provider
       value={{
@@ -169,6 +198,7 @@ const GithubState = (props) => {
         selectedTime: state.selectedTime,
         selectedLanguage: state.selectedLanguage,
         languageList: state.languageList,
+        filteredLanguage: state.filteredLanguage,
         searchUsers,
         searchRepos,
         clearUsers,
@@ -180,6 +210,10 @@ const GithubState = (props) => {
         filterTrendingRepos,
         setSelectedLanguage,
         getLanguageList,
+        filterLanguage,
+        clearFilter,
+        // setCurrent,
+        // clearCurrent,
       }}
     >
       {props.children}

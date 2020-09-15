@@ -1,4 +1,5 @@
 import React, { useEffect, useContext } from "react";
+import TrendingFilter from "../trending/TrendingFilter";
 import GithubContext from "../../context/github/githubContext";
 import TrendingList from "../trending/TrendingList";
 
@@ -13,6 +14,7 @@ const Trending = () => {
     selectedLanguage,
     getLanguageList,
     languageList,
+    filteredLanguage,
   } = githubContext;
   useEffect(() => {
     getTrendingRepos();
@@ -44,14 +46,7 @@ const Trending = () => {
                     className="dropdown-menu"
                     aria-labelledby="dropdownMenuButton"
                   >
-                    <p>Select a language</p>
-                    <div className="dropdown-search-bar-container">
-                      <input
-                        type="text"
-                        className="dropdown-search-bar"
-                        placeholder="Filter by language"
-                      />
-                    </div>
+                    <TrendingFilter />
                     <a
                       className="dropdown-item"
                       href="#"
@@ -70,28 +65,51 @@ const Trending = () => {
                       {" "}
                       All languages
                     </a>
-                    {languageList.map((language) => {
-                      return (
-                        <a
-                          className="dropdown-item"
-                          href="#"
-                          key={language.urlParam}
-                          onClick={() => {
-                            setSelectedLanguage(language.name);
-                            filterTrendingRepos(
-                              language.urlParam,
-                              selectedTime === "Today"
-                                ? "daily"
-                                : selectedTime === "This Week"
-                                ? "weekly"
-                                : "monthly"
-                            );
-                          }}
-                        >
-                          {language.name}
-                        </a>
-                      );
-                    })}
+                    {filteredLanguage == null
+                      ? languageList.map((language) => {
+                          return (
+                            <a
+                              className="dropdown-item"
+                              href="#"
+                              key={language.urlParam}
+                              onClick={() => {
+                                setSelectedLanguage(language.name);
+                                filterTrendingRepos(
+                                  language.urlParam,
+                                  selectedTime === "Today"
+                                    ? "daily"
+                                    : selectedTime === "This Week"
+                                    ? "weekly"
+                                    : "monthly"
+                                );
+                              }}
+                            >
+                              {language.name}
+                            </a>
+                          );
+                        })
+                      : filteredLanguage.map((language) => {
+                          return (
+                            <a
+                              className="dropdown-item"
+                              href="#"
+                              key={language.urlParam}
+                              onClick={() => {
+                                setSelectedLanguage(language.name);
+                                filterTrendingRepos(
+                                  language.urlParam,
+                                  selectedTime === "Today"
+                                    ? "daily"
+                                    : selectedTime === "This Week"
+                                    ? "weekly"
+                                    : "monthly"
+                                );
+                              }}
+                            >
+                              {language.name}
+                            </a>
+                          );
+                        })}
                   </div>
                 </div>
               </div>
