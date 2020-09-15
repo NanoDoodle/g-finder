@@ -38,11 +38,14 @@ const GithubState = (props) => {
     user: {},
     repos: [],
     userRepos: [],
-    loading: false,
+    loading: true,
     trendingRepos: [],
     selectedTime: "This Week",
     languageList: [],
-    selectedLanguage: "All Languages",
+    selectedLanguage: {
+      name: "All Languages",
+      urlParam: "",
+    },
     filteredLanguage: null,
     current: null,
   };
@@ -124,7 +127,6 @@ const GithubState = (props) => {
 
   //Get Language List
   const getLanguageList = async () => {
-    setLoading();
     const res = await axios.get(`https://ghapi.huchen.dev/languages`);
     dispatch({
       type: GET_LANGUAGE_LIST,
@@ -134,7 +136,6 @@ const GithubState = (props) => {
 
   //Set Time
   const setSelectedTime = (time) => {
-    setLoading();
     dispatch({
       type: SET_SELECTED_TIME,
       payload: time,
@@ -143,7 +144,6 @@ const GithubState = (props) => {
 
   //Set Language
   const setSelectedLanguage = (language) => {
-    setLoading();
     dispatch({
       type: SET_SELECTED_LANGUAGE,
       payload: language,
@@ -156,7 +156,6 @@ const GithubState = (props) => {
     const res = await axios.get(
       `https://ghapi.huchen.dev/repositories?language=${language}&since=${time}`
     );
-    console.log(res.data);
     dispatch({
       type: FILTER_TRENDING_REPOS,
       payload: res.data,
@@ -165,7 +164,6 @@ const GithubState = (props) => {
 
   //Filter Language
   const filterLanguage = (text) => {
-    setLoading();
     dispatch({
       type: FILTER_LANGUAGE,
       payload: text,

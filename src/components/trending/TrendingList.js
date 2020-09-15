@@ -2,15 +2,23 @@ import React, { useContext } from "react";
 import GithubContext from "../../context/github/githubContext";
 import TrendingItem from "./TrendingItem";
 import spidertocat from "../../images/spidertocat.png";
+import Spinner from "../layout/Spinner";
 
 const TrendingList = () => {
   const githubContext = useContext(GithubContext);
-  const { trendingRepos, selectedLanguage } = githubContext;
+  const { trendingRepos, selectedLanguage, loading } = githubContext;
+
+  if (loading) {
+    return (
+      <div>
+        <Spinner />
+      </div>
+    );
+  }
 
   return (
     <div className="row">
-      {console.log(trendingRepos)}
-      {trendingRepos.length === 0 ? (
+      {trendingRepos.length === 0 && loading === false ? (
         <div>
           <img
             src={spidertocat}
@@ -19,7 +27,7 @@ const TrendingList = () => {
           />
 
           <p className="trending-repos-no-result">
-            Oops...No trending repos with {selectedLanguage}!
+            Oops...No trending repos with {selectedLanguage.name}!
           </p>
         </div>
       ) : (

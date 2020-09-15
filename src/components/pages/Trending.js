@@ -2,6 +2,7 @@ import React, { useEffect, useContext } from "react";
 import TrendingFilter from "../trending/TrendingFilter";
 import GithubContext from "../../context/github/githubContext";
 import TrendingList from "../trending/TrendingList";
+import Spinner from "../layout/Spinner";
 
 const Trending = () => {
   const githubContext = useContext(GithubContext);
@@ -40,7 +41,7 @@ const Trending = () => {
                     aria-haspopup="true"
                     aria-expanded="false"
                   >
-                    {selectedLanguage}
+                    {selectedLanguage.name}
                   </button>
                   <div
                     className="dropdown-menu"
@@ -51,7 +52,10 @@ const Trending = () => {
                       className="dropdown-item"
                       href="#"
                       onClick={() => {
-                        setSelectedLanguage("All languages");
+                        setSelectedLanguage({
+                          name: "All Languages",
+                          urlParam: "",
+                        });
                         filterTrendingRepos(
                           "",
                           selectedTime === "Today"
@@ -65,6 +69,7 @@ const Trending = () => {
                       {" "}
                       All languages
                     </a>
+
                     {filteredLanguage == null
                       ? languageList.map((language) => {
                           return (
@@ -73,7 +78,7 @@ const Trending = () => {
                               href="#"
                               key={language.urlParam}
                               onClick={() => {
-                                setSelectedLanguage(language.name);
+                                setSelectedLanguage(language);
                                 filterTrendingRepos(
                                   language.urlParam,
                                   selectedTime === "Today"
@@ -95,7 +100,7 @@ const Trending = () => {
                               href="#"
                               key={language.urlParam}
                               onClick={() => {
-                                setSelectedLanguage(language.name);
+                                setSelectedLanguage(language);
                                 filterTrendingRepos(
                                   language.urlParam,
                                   selectedTime === "Today"
@@ -134,10 +139,9 @@ const Trending = () => {
                       href="#"
                       onClick={() => {
                         setSelectedTime("Today");
-                        filterTrendingRepos("", "daily");
+                        filterTrendingRepos(selectedLanguage.urlParam, "daily");
                       }}
                     >
-                      {" "}
                       Today
                     </a>
                     <a
@@ -145,7 +149,10 @@ const Trending = () => {
                       href="#"
                       onClick={() => {
                         setSelectedTime("This Week");
-                        filterTrendingRepos("", "weekly");
+                        filterTrendingRepos(
+                          selectedLanguage.urlParam,
+                          "weekly"
+                        );
                       }}
                     >
                       This Week
@@ -155,7 +162,10 @@ const Trending = () => {
                       href="#"
                       onClick={() => {
                         setSelectedTime("This month");
-                        filterTrendingRepos("", "monthly");
+                        filterTrendingRepos(
+                          selectedLanguage.urlParam,
+                          "monthly"
+                        );
                       }}
                     >
                       This month

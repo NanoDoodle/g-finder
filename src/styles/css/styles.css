@@ -46,6 +46,8 @@
     width: 18px;
     display: inline-block;
     margin-left: 3px; }
+    .trending-card .trending-card-author-img:hover {
+      transform: scale(1.5); }
   .trending-card .trending-card-description {
     margin-top: 10px;
     font-size: 14px;
@@ -73,10 +75,10 @@
       .trending-filter-container .language-filter-dropdown .dropdown-menu .dropdown-search-bar-container {
         border-bottom: 1px solid rgba(245, 244, 244, 0.26);
         box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.05);
-        height: 40px; }
+        height: 40px;
+        padding: 0 10px; }
         .trending-filter-container .language-filter-dropdown .dropdown-menu .dropdown-search-bar-container .dropdown-search-bar {
-          width: 230px;
-          margin-left: 10px; }
+          width: 100%; }
   .trending-filter-container .time-filter-dropdown {
     margin-top: 18px;
     margin-left: 20px; }
@@ -86,7 +88,6 @@
 .trending-repos-no-result {
   font-size: 30px;
   color: #404969;
-  margin: 0 auto;
   display: inline-block; }
 
 .trending-repos-no-result-image {
