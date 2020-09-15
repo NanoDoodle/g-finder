@@ -6,9 +6,13 @@ import Spinner from "../layout/Spinner";
 
 const TrendingList = () => {
   const githubContext = useContext(GithubContext);
-  const { trendingRepos, selectedLanguage, loading } = githubContext;
+  const {
+    trendingRepos,
+    selectedLanguage,
+    trendingRepoLoading,
+  } = githubContext;
 
-  if (loading) {
+  if (trendingRepoLoading) {
     return (
       <div>
         <Spinner />
@@ -18,7 +22,7 @@ const TrendingList = () => {
 
   return (
     <div className="row">
-      {trendingRepos.length === 0 && loading === false ? (
+      {trendingRepos.length === 0 && trendingRepoLoading === false ? (
         <div>
           <img
             src={spidertocat}

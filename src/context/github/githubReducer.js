@@ -13,6 +13,7 @@ import {
   FILTER_TRENDING_REPOS,
   FILTER_LANGUAGE,
   CLEAR_FILTER,
+  SET_TRENDING_REPO_LOADING,
 } from "../types";
 
 export default (state, action) => {
@@ -60,23 +61,27 @@ export default (state, action) => {
         ...state,
         loading: true,
       };
+    case SET_TRENDING_REPO_LOADING:
+      return {
+        ...state,
+        trendingRepoLoading: true,
+      };
     case GET_TRENDING_REPOS:
       return {
         ...state,
         trendingRepos: action.payload,
-        loading: false,
+        trendingRepoLoading: false,
       };
     case FILTER_TRENDING_REPOS:
       return {
         ...state,
         trendingRepos: action.payload,
-        loading: false,
+        trendingRepoLoading: false,
       };
     case GET_LANGUAGE_LIST:
       return {
         ...state,
         languageList: action.payload,
-        loading: false,
       };
     case SET_SELECTED_TIME:
       return {

@@ -18,6 +18,7 @@ import {
   FILTER_TRENDING_REPOS,
   FILTER_LANGUAGE,
   CLEAR_FILTER,
+  SET_TRENDING_REPO_LOADING,
 } from "../types";
 
 let githubClientId;
@@ -39,6 +40,7 @@ const GithubState = (props) => {
     repos: [],
     userRepos: [],
     loading: false,
+    trendingRepoLoading: true,
     trendingRepos: [],
     selectedTime: "This Week",
     languageList: [],
@@ -115,9 +117,13 @@ const GithubState = (props) => {
   //Set Loading
   const setLoading = () => dispatch({ type: SET_LOADING });
 
+  //Set trendingRepoLoading
+  const setTrendingRepoLoading = () =>
+    dispatch({ type: SET_TRENDING_REPO_LOADING });
+
   //Get trending Repos
   const getTrendingRepos = async () => {
-    setLoading();
+    setTrendingRepoLoading();
     const res = await axios.get(`https://ghapi.huchen.dev/repositories`);
     dispatch({
       type: GET_TRENDING_REPOS,
@@ -152,7 +158,7 @@ const GithubState = (props) => {
 
   //Filter Trending Repos
   const filterTrendingRepos = async (language, time) => {
-    setLoading();
+    setTrendingRepoLoading();
     const res = await axios.get(
       `https://ghapi.huchen.dev/repositories?language=${language}&since=${time}`
     );
@@ -188,6 +194,7 @@ const GithubState = (props) => {
         selectedLanguage: state.selectedLanguage,
         languageList: state.languageList,
         filteredLanguage: state.filteredLanguage,
+        trendingRepoLoading: state.trendingRepoLoading,
         searchUsers,
         searchRepos,
         clearUsers,
@@ -201,6 +208,7 @@ const GithubState = (props) => {
         getLanguageList,
         filterLanguage,
         clearFilter,
+        setTrendingRepoLoading,
       }}
     >
       {props.children}
