@@ -83,6 +83,16 @@
     .trending-filter-container .time-filter-dropdown .time-filter-dropdown-btn {
       width: 132.89px; }
 
+.trending-repos-no-result {
+  font-size: 30px;
+  color: #404969;
+  margin: 0 auto;
+  display: inline-block; }
+
+.trending-repos-no-result-image {
+  border-radius: 50%;
+  width: 30%; }
+
 body {
   background-color: #f8f9fa;
   font-family: "Titillium Web", sans-serif; }

@@ -14,6 +14,5 @@ export const FILTER_TRENDING_REPOS = "FILTER_TRENDING_REPOS ";
 export const GET_LANGUAGE_LIST = "GET_LANGUAGE_LIST ";
 export const FILTER_LANGUAGE = "FILTER_LANGUAGE ";
 export const CLEAR_FILTER = "CLEAR_FILTER ";
-// export const SET_CURRENT = "SET_CURRENT ";
-// export const CLEAR_CURRENT = "CLEAR_CURRENT ";
+
 

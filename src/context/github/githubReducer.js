@@ -13,8 +13,6 @@ import {
   FILTER_TRENDING_REPOS,
   FILTER_LANGUAGE,
   CLEAR_FILTER,
-  // SET_CURRENT,
-  // CLEAR_CURRENT,
 } from "../types";
 
 export default (state, action) => {
@@ -84,11 +82,13 @@ export default (state, action) => {
       return {
         ...state,
         selectedTime: action.payload,
+        loading: false,
       };
     case SET_SELECTED_LANGUAGE:
       return {
         ...state,
         selectedLanguage: action.payload,
+        loading: false,
       };
     case FILTER_LANGUAGE:
       return {
@@ -97,22 +97,14 @@ export default (state, action) => {
           const regex = new RegExp(`${action.payload}`, "gi");
           return language.name.match(regex);
         }),
+        loading: false,
       };
     case CLEAR_FILTER:
       return {
         ...state,
         filterd: null,
       };
-    // case CLEAR_CURRENT:
-    //   return {
-    //     ...state,
-    //     current: null,
-    //   };
-    // case SET_CURRENT:
-    //   return {
-    //     ...state,
-    //     current: action.payload,
-    //   };
+
     default:
       return state;
   }

@@ -166,7 +166,6 @@ const Trending = () => {
             </div>
           </div>
         </div>
-
         <TrendingList />
       </div>
     </div>

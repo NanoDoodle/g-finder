@@ -114,3 +114,14 @@ $primary: #404969;
     }
   }
 }
+
+.trending-repos-no-result {
+  font-size: 30px;
+  color: $primary;
+  margin: 0 auto;
+  display: inline-block;
+}
+.trending-repos-no-result-image {
+  border-radius: 50%;
+  width: 30%;
+}
