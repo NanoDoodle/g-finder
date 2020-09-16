@@ -7,9 +7,9 @@ const RepoOrder = ({ userRepos }) => {
   //   const repoOrderByUpdate = repos;
 
   //   const onClick = e => setOrder(e.target.value);
-  const onClickStar = e => setOrder("star");
-  const onClickWatch = e => setOrder("watch");
-  const onClickFork = e => setOrder("fork");
+  const onClickStar = (e) => setOrder("star");
+  const onClickWatch = (e) => setOrder("watch");
+  const onClickFork = (e) => setOrder("fork");
   //   const onClickUpdate = e => setOrder("update");
 
   //Order repos by star down
@@ -30,54 +30,54 @@ const RepoOrder = ({ userRepos }) => {
 
   //Order Row
   const orderRow = (
-    <div className='row repoOrder mx-2'>
-      <div className='col-sm-10 pl-1'>
-        <h4 className='text-primary'>
-          User repos order by <span className='text-secondary'>{order}</span>
+    <div className="row repoOrder mx-2">
+      <div className="col-sm-10 pl-1">
+        <h4 className="text-primary">
+          User repos order by <span className="text-secondary">{order}</span>
         </h4>
       </div>
-      <div className='col-sm-2 ml-auto text-center p-0'>
-        <div class='dropdown  '>
+      <div className="col-sm-2 ml-auto text-center p-0">
+        <div className="dropdown  ">
           <button
-            class='btn btn-secondary btn-block dropdown-toggle py-0 mr-1'
-            type='button'
-            id='dropdownMenuButton'
-            data-toggle='dropdown'
-            aria-haspopup='true'
+            className="btn btn-secondary btn-block dropdown-toggle py-0 mr-1"
+            type="button"
+            id="dropdownMenuButton"
+            data-toggle="dropdown"
+            aria-haspopup="true"
             // aria-expanded='false'
           >
             Ordered by
           </button>
           <div
-            class='dropdown-menu dropdown-menu-right'
-            aria-labelledby='dropdownMenuButton'
+            className="dropdown-menu dropdown-menu-right"
+            aria-labelledby="dropdownMenuButton"
           >
             <a
-              class='dropdown-item'
-              href='#!'
-              value='star'
+              className="dropdown-item"
+              href="#!"
+              value="star"
               onClick={onClickStar}
             >
               Star
             </a>
             <a
-              class='dropdown-item'
-              href='#!'
-              value='watch'
+              className="dropdown-item"
+              href="#!"
+              value="watch"
               onClick={onClickWatch}
             >
               Watch
             </a>
             <a
-              class='dropdown-item'
-              href='#!'
-              value='fork'
+              className="dropdown-item"
+              href="#!"
+              value="fork"
               onClick={onClickFork}
             >
               Fork
             </a>
             {/* <a
-              class='dropdown-item'
+              className='dropdown-item'
               href='#!'
               value='update'
               onClick={onClickUpdate}
@@ -94,7 +94,7 @@ const RepoOrder = ({ userRepos }) => {
   return (
     <Fragment>
       {orderRow}
-      <div className='row mx-1'>
+      <div className="row mx-1">
         <UserRepos userRepos={userRepos} />
       </div>
     </Fragment>
@@ -102,6 +102,6 @@ const RepoOrder = ({ userRepos }) => {
 };
 
 UserRepos.protoTypes = {
-  UserRepos: PropTypes.array.isRequired
+  UserRepos: PropTypes.array.isRequired,
 };
 export default RepoOrder;

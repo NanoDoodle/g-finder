@@ -10,7 +10,15 @@ import {
   CLEAR_USERS,
   CLEAR_SEARCH,
   GET_REPOS,
-  GET_USER
+  GET_USER,
+  GET_TRENDING_REPOS,
+  GET_LANGUAGE_LIST,
+  SET_SELECTED_LANGUAGE,
+  SET_SELECTED_TIME,
+  FILTER_TRENDING_REPOS,
+  FILTER_LANGUAGE,
+  CLEAR_FILTER,
+  SET_TRENDING_REPO_LOADING,
 } from "../types";
 
 let githubClientId;
@@ -18,40 +26,51 @@ let githubClientSecret;
 
 if (process.env.NODE_ENV !== "production") {
   githubClientId = process.env.REACT_APP_GITHUB_CLIENT_ID;
-  githubClientSecret = process.env.REACT_APP_GITHUB_CLIENT_SECTET;
+  githubClientSecret = process.env.REACT_APP_GITHUB_CLIENT_SECRET;
 } else {
   githubClientId = process.env.GITHUB_CLIENT_ID;
-  githubClientSecret = process.env.GITHUB_CLIENT_SECTET;
+  githubClientSecret = process.env.GITHUB_CLIENT_SECRET;
 }
 
-const GithubState = props => {
+const GithubState = (props) => {
   //initialState is the initial states of the app
   const initialState = {
     users: [],
     user: {},
     repos: [],
     userRepos: [],
-    loading: false
+    loading: false,
+    trendingRepoLoading: true,
+    trendingRepos: [],
+    selectedTime: "This Week",
+    languageList: [],
+    selectedLanguage: {
+      name: "All Languages",
+      urlParam: "",
+    },
+    filteredLanguage: null,
+    current: null,
   };
 
   const [state, dispatch] = useReducer(GithubReducer, initialState);
 
   // Search Github Users
-  const searchUsers = async text => {
+  const searchUsers = async (text) => {
     clearSearch();
     setLoading();
+
     const res = await axios.get(
       `https://api.github.com/search/users?q=${text}&client_id=${githubClientId}&client_secret=${githubClientSecret}`
     );
 
     dispatch({
       type: SEARCH_USERS,
-      payload: res.data.items
+      payload: res.data.items,
     });
   };
 
   // Search Github Repos
-  const searchRepos = async text => {
+  const searchRepos = async (text) => {
     clearSearch();
     setLoading();
     const res = await axios.get(
@@ -60,12 +79,12 @@ const GithubState = props => {
 
     dispatch({
       type: SEARCH_REPOS,
-      payload: res.data.items
+      payload: res.data.items,
     });
   };
 
   // Get single Github user
-  const getUser = async username => {
+  const getUser = async (username) => {
     setLoading();
     const res = await axios.get(
       `https://api.github.com/users/${username}?client_id=${githubClientId}&client_secret=${githubClientSecret}`
@@ -73,19 +92,19 @@ const GithubState = props => {
 
     dispatch({
       type: GET_USER,
-      payload: res.data
+      payload: res.data,
     });
   };
 
   // Get users repos
-  const getUserRepos = async username => {
+  const getUserRepos = async (username) => {
     setLoading();
     const res = await axios.get(
       `https://api.github.com/users/${username}/repos?per_page=300&sort=updated:asc&client_id=${githubClientId}&client_secret=${githubClientSecret}`
     );
     dispatch({
       type: GET_REPOS,
-      payload: res.data
+      payload: res.data,
     });
   };
 
@@ -98,6 +117,70 @@ const GithubState = props => {
   //Set Loading
   const setLoading = () => dispatch({ type: SET_LOADING });
 
+  //Set trendingRepoLoading
+  const setTrendingRepoLoading = () =>
+    dispatch({ type: SET_TRENDING_REPO_LOADING });
+
+  //Get trending Repos
+  const getTrendingRepos = async () => {
+    setTrendingRepoLoading();
+    const res = await axios.get(`https://ghapi.huchen.dev/repositories`);
+    dispatch({
+      type: GET_TRENDING_REPOS,
+      payload: res.data,
+    });
+  };
+
+  //Get Language List
+  const getLanguageList = async () => {
+    const res = await axios.get(`https://ghapi.huchen.dev/languages`);
+    dispatch({
+      type: GET_LANGUAGE_LIST,
+      payload: res.data,
+    });
+  };
+
+  //Set Time
+  const setSelectedTime = (time) => {
+    dispatch({
+      type: SET_SELECTED_TIME,
+      payload: time,
+    });
+  };
+
+  //Set Language
+  const setSelectedLanguage = (language) => {
+    dispatch({
+      type: SET_SELECTED_LANGUAGE,
+      payload: language,
+    });
+  };
+
+  //Filter Trending Repos
+  const filterTrendingRepos = async (language, time) => {
+    setTrendingRepoLoading();
+    const res = await axios.get(
+      `https://ghapi.huchen.dev/repositories?language=${language}&since=${time}`
+    );
+    dispatch({
+      type: FILTER_TRENDING_REPOS,
+      payload: res.data,
+    });
+  };
+
+  //Filter Language
+  const filterLanguage = (text) => {
+    dispatch({
+      type: FILTER_LANGUAGE,
+      payload: text,
+    });
+  };
+
+  //Clear Filter
+  const clearFilter = () => {
+    dispatch({ type: CLEAR_FILTER });
+  };
+
   return (
     <GithubContext.Provider
       value={{
@@ -106,12 +189,26 @@ const GithubState = props => {
         repos: state.repos,
         userRepos: state.userRepos,
         loading: state.loading,
+        trendingRepos: state.trendingRepos,
+        selectedTime: state.selectedTime,
+        selectedLanguage: state.selectedLanguage,
+        languageList: state.languageList,
+        filteredLanguage: state.filteredLanguage,
+        trendingRepoLoading: state.trendingRepoLoading,
         searchUsers,
         searchRepos,
         clearUsers,
         clearSearch,
         getUser,
-        getUserRepos
+        getUserRepos,
+        getTrendingRepos,
+        setSelectedTime,
+        filterTrendingRepos,
+        setSelectedLanguage,
+        getLanguageList,
+        filterLanguage,
+        clearFilter,
+        setTrendingRepoLoading,
       }}
     >
       {props.children}

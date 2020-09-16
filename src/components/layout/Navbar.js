@@ -9,27 +9,32 @@ const Navbar = ({ icon, title }) => {
   const { clearSearch } = githubContext;
 
   return (
-    <nav className='navbar text-primary navbar-expand'>
-      <div className='container'>
-        <Link className='nav-link text-primary' onClick={clearSearch} to='/'>
-          <h1 className='mb-0'>
+    <nav className="navbar text-primary navbar-expand">
+      <div className="container">
+        <Link className="nav-link text-primary" onClick={clearSearch} to="/">
+          <h1 className="mb-0">
             <i className={icon} />
             {title}
           </h1>
         </Link>
 
-        <ul className='navbar-nav ml-auto'>
-          <li className='nav-item'>
-            <Link
-              className='nav-link text-primary'
-              onClick={clearSearch}
-              to='/'
-            >
-              Home
+        <ul className="navbar-nav ml-auto">
+          <li className="nav-item">
+            <Link className="nav-link text-primary" to="/trending">
+              Trending
             </Link>
           </li>
-          <li className='nav-item'>
-            <Link className='nav-link text-primary' to='/about'>
+          <li className="nav-item">
+            <Link
+              className="nav-link text-primary"
+              onClick={clearSearch}
+              to="/"
+            >
+              Search
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link text-primary" to="/about">
               About
             </Link>
           </li>
@@ -41,11 +46,11 @@ const Navbar = ({ icon, title }) => {
 
 Navbar.defaultProps = {
   title: ["G-finder"],
-  icon: "fab fa-github"
+  icon: "fab fa-github",
 };
 Navbar.propsTypes = {
   title: PropTypes.string.isRequired,
-  icon: PropTypes.string.isRequired
+  icon: PropTypes.string.isRequired,
 };
 
 export default Navbar;
